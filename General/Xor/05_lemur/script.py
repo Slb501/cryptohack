@@ -19,7 +19,7 @@ for i, c in enumerate(lemur):
     xored_byte = c ^ flag[i % len(flag)]
     xored_result.append(xored_byte)
 
-    # Convert the XORed bytes back to an image and save it
+# Convert the XORed bytes back to an image and save it
 
 # Get the original image size (width, height)
 with Image.open("lemur_ed66878c338e662d3473f0d98eedbd0d.png") as img:
