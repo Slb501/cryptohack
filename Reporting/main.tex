@@ -1,0 +1,108 @@
+% Déclaration de la classe du document (article, report, book, etc.)
+\documentclass[12pt, a4paper]{article}
+
+% --- PAQUETS UTILISÉS ---
+
+% Pour gérer l'encodage des caractères, indispensable pour les accents
+\usepackage[utf8]{inputenc}
+
+% Pour la gestion de la langue française (césure, typographie, etc.)
+\usepackage[french]{babel}
+
+% Pour gérer les marges du document
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% Pour avoir des liens cliquables dans le PDF (table des matières, références)
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% --- INFORMATIONS DU DOCUMENT ---
+
+\title{Rapport de Projet : Cryptohack}
+\author{Victor \and Seb}
+\date{\today} % Affiche la date de compilation
+
+% --- DÉBUT DU DOCUMENT ---
+
+\begin{document}
+
+% Crée la page de titre à partir des informations ci-dessus
+\maketitle
+
+% Génère la table des matières
+\tableofcontents
+
+\newpage % Commence le contenu sur une nouvelle page
+
+% --- CONTENU DU RAPPORT ---
+
+\section{Introduction (Victor)}
+    \subsection{Présentation de cryptohack}
+    % Contenu à rédiger ici
+    
+    \subsection{Présentation du projet}
+    % Contenu à rédiger ici
+
+\section{Gestion de projet (Seb)}
+    \subsection{Répartition du travail}
+    % Contenu à rédiger ici
+    
+    \subsection{Gestion d'un dépôt GitHub}
+    % Contenu à rédiger ici
+    
+    \subsection{Méthodologie GitHub}
+    % Contenu à rédiger ici
+
+\section{General (Victor pour descriptions globale)}
+    \subsection{Objectifs généraux de la catégorie du challenge}
+    % Contenu à rédiger ici
+    
+    \subsection{Encoding (Encoding challenge)}
+        \subsubsection{Objectifs}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Méthode}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Résultat}
+        % Contenu à rédiger ici
+        
+    \subsection{Xor (Lemur)}
+        \subsubsection{Objectifs}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Méthode}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Résultat}
+        % Contenu à rédiger ici
+        
+    \subsection{Data formats (Transparency)}
+        \subsubsection{Objectifs}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Méthode}
+        % Contenu à rédiger ici
+        
+        \subsubsection{Résultat}
+        % Contenu à rédiger ici
+
+\section{Diffie-Hellman}
+    \subsection{Objectifs généraux de la catégorie du challenge}
+    % Contenu à rédiger ici
+    
+    \subsection{Man in the middle (Export grade)}
+    % Contenu à rédiger ici
+
+\section{RSA}
+    \subsection{Objectifs généraux de la catégorie du challenge}
+    % Contenu à rédiger ici
+
+% --- FIN DU DOCUMENT ---
+
+\end{document}
