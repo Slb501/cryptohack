@@ -50,13 +50,33 @@
 
 \section{Gestion de projet (Seb)}
     \subsection{Répartition du travail}
-    % Contenu à rédiger ici
+    Avant de débuter notre travail sur les différents challenges de \textit{CryptoHack}, nous avons pris le temps de planifier notre organisation, notamment en tenant compte de notre emploi du temps déjà chargé (plusieurs cours et contrôles continus à gérer en parallèle). Nous avons donc fixé une \textbf{date de début précise}, afin de disposer d’un cadre temporel clair et d’assurer une répartition équilibrée de la charge de travail.
+
+    Une fois cette date établie, nous avons défini des \textbf{objectifs initiaux} afin d’avoir une vision claire de notre progression. Dans un premier temps, nous avons convenu de nous concentrer entièrement sur le module \textit{General}, dans le but de nous familiariser avec la plateforme \textit{CryptoHack} et de comprendre le format des exercices proposés. Cette phase de découverte avait également pour but d’identifier les outils nécessaires à la résolution des énigmes (Python, bibliothèques de cryptographie, etc.) et d’évaluer le niveau de difficulté des différents types de challenges.
+
+    Pour structurer notre travail, nous avons mis en place une \textbf{répartition des tâches} claire. L’un de nous s’est concentré sur les modules \textit{Encoding} et \textit{XOR}, tandis que l’autre s’est chargé des parties \textit{Mathematics} et \textit{Data Formats}. Cette division nous a permis de progresser en parallèle tout en couvrant un large spectre de thématiques cryptographiques. Nous avons également fixé une première \textbf{deadline commune} pour la fin de cette phase, afin de pouvoir ensuite faire un point global sur l’avancement du projet.
     
     \subsection{Gestion d'un dépôt GitHub}
-    % Contenu à rédiger ici
+    Dès le début du projet, nous avons créé un \textbf{dépôt GitHub partagé}, servant de point central pour le suivi et la gestion de notre travail. Ce dépôt nous a permis d’organiser nos scripts de résolution, nos notes et les différents fichiers associés aux challenges. L’utilisation de GitHub s’est révélée particulièrement utile pour la \textbf{collaboration asynchrone}, notamment lorsque nos disponibilités ne coïncidaient pas.
+
+    Chaque membre disposait d’un accès complet au dépôt et pouvait le mettre à jour dès qu’il estimait qu’une contribution était suffisamment stable ou pertinente. Les commits étaient accompagnés de messages explicites décrivant les modifications apportées, ce qui facilitait la compréhension de l’évolution du projet.  
+    
+
     
     \subsection{Méthodologie GitHub}
-    % Contenu à rédiger ici
+    Afin d’assurer une organisation cohérente et efficace, nous avons adopté une \textbf{méthodologie de travail simple mais structurée} basée sur les bonnes pratiques Git.  
+    Chaque fois qu’un challenge était résolu, le code correspondant était ajouté dans un dossier thématique (par exemple, \textit{Encoding/}, \textit{XOR/}, \textit{Mathematics/}, etc.).
+
+    Nous avons également convenu d’un rythme de mise à jour régulier du dépôt : chacun pouvait pousser ses modifications après vérification, en veillant à ne pas écraser le travail de l’autre. Lorsque cela s’avérait nécessaire, nous communiquions directement pour fusionner ou réorganiser certaines branches, garantissant ainsi une cohérence globale dans la structure du projet.
+
+    Une fois les premiers modules terminés, nous avons commencé la rédaction du rapport sur \LaTeX{}. Là encore, nous avons établi une \textbf{structure commune} afin d’uniformiser notre style et notre présentation. Nous avons fixé une nouvelle deadline pour la finalisation de cette partie, ce qui nous a permis de maintenir un rythme constant.
+
+    Par la suite, nous avons décidé d’ajouter deux modules supplémentaires à nos objectifs : \textit{Diffie-Hellman} et \textit{RSA}. Pour cette nouvelle étape, chacun s’est vu attribuer un module et a évalué, en fonction de son temps disponible, quels challenges étaient les plus pertinents à traiter.  
+    Cette approche flexible mais organisée nous a permis de continuer à avancer efficacement, tout en tenant compte de nos contraintes personnelles et académiques.
+
+    ---
+
+    En somme, cette gestion de projet s’est appuyée sur une \textbf{communication régulière}, une \textbf{planification claire} et une \textbf{utilisation rigoureuse de GitHub}. Cela nous a permis de progresser de manière structurée, d’assurer la cohérence de nos contributions et de produire un travail collectif de qualité.
 
 \section{General (Victor pour descriptions globale)}
     \subsection{Objectifs généraux de la catégorie du challenge}
@@ -83,14 +103,92 @@
         % Contenu à rédiger ici
         
     \subsection{Data formats (Transparency)}
+        \subsubsection{Introduction}
+            Le challenge s'appuie sur le principe de \emph{Certificate Transparency} (CT), une mesure de sécurité imposée aux Autorités de Certification (CA) pour garantir la transparence dans la délivrance des certificats TLS.
+            
+            Un certificat TLS (souvent appelé certificat SSL ou certificat numérique) est un document électronique qui remplit deux fonctions principales :
+            \begin{itemize}
+                \item Authentifier l'identité d'un site web (ou d'un domaine) auprès des clients (navigateurs, applications).
+                \item Établir une connexion chiffrée (TLS) entre le client et le serveur, garantissant la confidentialité et l'intégrité des données échangées.
+            \end{itemize}
+        
+            Un \emph{CT log} est une base de données publique, append-only (où l'on ne peut qu'ajouter des entrées) dans laquelle les certificats émis par les CA sont enregistrés. Aujourd'hui, les principales CA doivent publier (ou « soumettre ») chaque certificat qu'elles émettent dans au moins deux logs CT publics pour qu'il soit accepté et reconnu comme valide par les navigateurs modernes.
+        
+            Ces logs sont « audités » et surveillés : chacun peut vérifier les entrées, détecter des certificats inattendus, ou vérifier la cohérence de la structure interne (par exemple via un arbre de Merkle) pour s'assurer qu'on ne cache pas d'entrées.
+            
         \subsubsection{Objectifs}
-        % Contenu à rédiger ici
+            L'objectif de ce challenge est double :
+            \begin{enumerate}
+                \item Retrouver le sous-domaine de \texttt{cryptohack.org} qui utilise la même clé publique que celle fournie dans le fichier \texttt{transparency.pem} dans son certificat TLS.
+                \item En visitant ce sous-domaine, obtenir le \emph{flag}.
+            \end{enumerate}
+            
+            À travers ce challenge, les objectifs pédagogiques sont :
+            \begin{itemize}
+                \item Comprendre le fonctionnement d’un certificat TLS et sa structure (clé publique, signature, chaîne de confiance, etc.).
+                \item Découvrir le système des \emph{Certificate Transparency logs}, bases de données publiques des certificats valides.
+                \item Apprendre à faire correspondre une clé publique à un certificat.
+                \item Utiliser des outils d’investigation SSL/TLS et de recherche de certificats.
+            \end{itemize}
         
         \subsubsection{Méthode}
-        % Contenu à rédiger ici
+            \paragraph{Étape 0 : Compréhension du format PEM}
+            \begin{itemize} 
+            \item Le fichier fourni est au format PEM (Privacy-Enhanced Mail), un format standard pour les clés cryptographiques qui utilise l'encodage Base64. Exemple (clé publique fournie) :
+            
+\item\begin{verbatim}
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuYj06m5q4M8SsEQwKX+5
+NPs2lyB2k7geZw4rP68eUZmqODeqxDjv5mlLY2nz/RJsPdks4J+y5t96KAyo3S5g
+mDqEOMG7JgoJ9KU+4HPQFzP9C8Gy+hisChdo9eF6UeWGTioazFDIdRUK+gZm81c1
+iPEhOBIYu3Cau32LRtv+L9vzqre0Ollf7oeHqcbcMBIKL6MpsJMG+neJPnICI36B
+ZZEMu6v6f8zIKuB7VUHAbDdQ6tsBzLpXz7XPBUeKPa1Fk8d22EI99peHwWt0RuJP
+0QsJnsa4oj6C6lE+c5+vVHa6jVsZkpl2PuXZ05a69xORZ4oq+nwzK8O/St1hbNBX
+sQIDAQAB
+-----END PUBLIC KEY-----
+\end{verbatim}
+\end{itemize}
+
+            \paragraph{\textbf{Étape 1 : Analyse du problème initial.}} 
+            \begin{itemize} 
+            \item On cherche à comprendre comment relier une empreinte SHA-256 à un certificat TLS complet et comment extraire la clé publique d'un certificat. 
+            \item \textbf{Constatations :} 
+            \begin{enumerate} 
+            \item Un certificat TLS X.509 contient une clef publique encapsulée. 
+            \item La représentation DER est la base sur laquelle on calcule l'empreinte SHA-256 utilisée par certains services (par ex. crt.sh avec le paramètre spkisha256). 
+            \item Les formats PEM (texte Base64) et DER (binaire) sont des représentations interchangeables de la même information. 
+            \end{enumerate} 
+            \end{itemize}
+            
+            \paragraph{\textbf{Étape 2 : Conception du script pas à pas.}}~\\
+            
+            Les objectifs du script sont : 
+            \begin{enumerate} 
+            \item Générer l'empreinte SHA-256 de la clé publique fournie. 
+            \item Interroger les CT logs (par exemple via \texttt{crt.sh}) pour retrouver les certificats. 
+            \item Télécharger le certificat complet (PEM) identifié dans les logs. 
+            \item Extraire le nom de domaine du certificat. 
+            \item Accéder et récupérer le flag. 
+            \end{enumerate}
+            
         
         \subsubsection{Résultat}
-        % Contenu à rédiger ici
+            L'exécution du processus a produit les résultats suivants : 
+            \begin{itemize} 
+            \item \textbf{Empreinte (SHA-256):} 
+            \begin{verbatim}
+            29ab37df0a4e4d252f0cf12ad854bede59038fdd9cd652cbc5c222edd26d77d2
+            \end{verbatim} 
+            \item \textbf{Sous-domaine identifié :} 
+            \begin{verbatim}
+            thetransparencyflagishere.cryptohack.org
+            \end{verbatim} 
+            \item \textbf{Flag obtenu :} 
+            \begin{verbatim}
+            crypto{thx_redpwn_for_inspiration}
+            \end{verbatim} 
+            \end{itemize}
+
 
 \section{Diffie-Hellman}
     \subsection{Objectifs généraux de la catégorie du challenge}
