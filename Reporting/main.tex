@@ -8,7 +8,8 @@
 
 % Pour la gestion de la langue française (césure, typographie, etc.)
 \usepackage[french]{babel}
-
+\usepackage{graphicx}
+\usepackage{float}
 % Pour gérer les marges du document
 \usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
 
@@ -41,12 +42,46 @@
 
 % --- CONTENU DU RAPPORT ---
 
-\section{Introduction (Victor)}
-    \subsection{Présentation de cryptohack}
-    % Contenu à rédiger ici
-    
-    \subsection{Présentation du projet}
-    % Contenu à rédiger ici
+\section{Introduction}
+
+\subsection{Contexte du projet}
+
+Ce rapport présente une série de challenges de cryptographie réalisés sur la plateforme CryptoHack. L'objectif est de documenter les approches méthodologiques et les solutions techniques que nous avons mis en oeuvre en binome pour résoudre les défis proposés. En préambule, il convient de situer le contexte de ce travail en présentant d'une part le rôle fondamental de la cryptographie en cybersécurité, et d'autre part l'intérêt des plateformes de type \textit{Capture The Flag} (CTF) comme outil d'apprentissage.
+
+\subsection{Place de la cryptographie en cybersécurité}
+
+La cryptographie est une discipline scientifique qui constitue l'un des piliers de la sécurité des systèmes d'information. Son objet est de développer des techniques permettant de protéger l'information contre toute modification ou accès non autorisé. En cybersécurité, la cryptographie vise à garantir plusieurs principes de sécurité fondamentaux.
+
+\paragraph{La confidentialité}
+Ce principe assure que seules les entités autorisées puissent accéder aux données. L'outil principal pour atteindre cet objectif est le chiffrement, qui consiste à transformer une information (le texte clair) en une forme inintelligible (le texte chiffré) à l'aide d'une clé secrète.
+
+\paragraph{L'intégrité}
+Ce principe garantit que les données n'ont pas été altérées ou corrompues, que ce soit de manière accidentelle ou intentionnelle, durant leur stockage ou leur transmission. Les fonctions de hachage et les codes d'authentification de message (MAC) sont des mécanismes cryptographiques courants pour vérifier l'intégrité.
+
+\paragraph{L'authenticité}
+Ce principe permet de vérifier l'identité d'une entité (un utilisateur, un serveur, etc.). Les certificats numériques et les signatures numériques sont des exemples de techniques cryptographiques assurant l'authentification.
+
+\paragraph{La non-répudiation}
+Ce principe empêche une entité de nier avoir effectué une action, comme l'envoi d'un message ou la validation d'une transaction. La signature numérique est le mécanisme de base pour fournir cette garantie.\\
+
+De la sécurisation des communications sur Internet (protocoles TLS/SSL) à la protection des données stockées, en passant par la sécurisation des transactions financières et la protection de la vie privée, les applications de la cryptographie sont omniprésentes et critiques. L'étude de ses mécanismes et de leurs implémentations est par conséquent essentielle pour tout praticien de la cybersécurité.
+
+\subsection{Les plateformes de CTF dans l'apprentissage}
+
+Les challenges de type \textit{Capture The Flag} (CTF) sont des exercices de cybersécurité offensifs et/ou défensifs. Les participants doivent résoudre des épreuves pour trouver une chaîne de caractères secrète, appelée \textit{flag}, cachée dans un système, un fichier ou encore un chiffré.
+
+Les plateformes de CTF comme \textit{root-me}, \textit{TryHackMe} ou encore \textit{CryptoHack} sont des environnements d'apprentissage pratiques et contrôlés où les utilisateurs peuvent appliquer des connaissances théoriques à travers des exercices thématiques. Cette approche par la pratique favorise une compréhension approfondie des vulnérabilités et des techniques d'exploitation.
+
+Ces plateformes couvrent un large éventail de domaines de la cybersécurité, tels que l'exploitation de binaires, la rétro-ingénierie (\textit{reverse engineering}), l'analyse forensique (\textit{digital forensics}), la sécurité des applications web et la cryptographie.
+
+\subsection{Présentation de CryptoHack}
+
+CryptoHack est une plateforme en ligne dédiée à l'apprentissage de la cryptographie moderne. Elle propose une série de challenges de type CTF qui permettent aux utilisateurs de se familiariser avec les principes, les algorithmes et les attaques cryptographiques. La plateforme est conçue pour être progressive, avec des défis de difficulté croissante.
+
+Les challenges sur CryptoHack se concentrent sur l'identification et l'exploitation de failles dans des implémentations de protocoles et d'algorithmes cryptographiques largement utilisés, tels que AES, RSA ou Diffie-Hellman. 
+
+Chaque challenge est conçu pour illustrer un concept cryptographique spécifique ou une vulnérabilité connue. Les utilisateurs sont amenés à interagir avec des serveurs distants, à analyser du code source et à développer leurs propres scripts, principalement en Python, pour automatiser les attaques et récupérer les \textit{flags}. 
+
 
 \section{Gestion de projet (Seb)}
     \subsection{Répartition du travail}
@@ -83,24 +118,122 @@
     % Contenu à rédiger ici
     
     \subsection{Encoding (Encoding challenge)}
+    
+        Cette première sous-partie de la catégorie General aborde les différentes méthodes de représentation de l'information, essentielles au transport et à l'échange de données. La maîtrise des conversions entre des formats comme le binaire, l'hexadécimal ou le Base64 constitue un prérequis indispensable pour aborder des défis cryptographiques plus complexes. Il est fondamental de bien distinguer l'encodage du chiffrement : le premier est une transformation de format, publique et réversible, qui ne vise pas à garantir la confidentialité, contrairement au second.
+
+        Nous avons décidé de présenter le dernier challenge de cette partie, nommé \textit{Encoding challenge}.
+        
         \subsubsection{Objectifs}
-        % Contenu à rédiger ici
-        
+            L'objectif de ce challenge consiste à développer un script pour automatiser l'interaction avec un serveur distant de CryptoHack. Le processus implique la réception de données encodées selon diverses méthodes (Base64, hexadécimal, ROT13, BigInt, et UTF-8), leur décodage approprié, puis le renvoi de la valeur décodée au serveur.
+    
+            Pour valider le challenge et obtenir le flag, il est impératif d'exécuter cette séquence de réception, décodage et renvoi avec succès cent fois consécutives. Cette contrainte requiert une solution entièrement automatisée, capable de gérer dynamiquement les différents types d'encodage rencontrés.
+                
         \subsubsection{Méthode}
-        % Contenu à rédiger ici
-        
+            Le challenge met à disposition un script partiel qui présente la manière d'envoyer et recevoir des données avec le serveur, ainsi que le script exécuté côté serveur pour vérifier les valeurs qui lui ont été transmises. Ce s scripts nous ont permis de comprendre le format des données transmises.
+
+            La communication avec le serveur s'effectue via l'échange d'objets au format JSON. 
+            Pour chaque itération du challenge, le serveur envoie une requête structurée de la 
+            manière suivante~:
+            
+            \begin{verbatim}
+            {
+              "type": "type_d_encodage",
+              "encoded": "donnees_encodees"
+            }
+            \end{verbatim}
+            
+            Notre script doit alors analyser cette requête, appliquer la méthode de décodage 
+            appropriée, et renvoyer la solution au serveur sous le format JSON attendu~:
+            
+            \begin{verbatim}
+            {
+              "decoded": "donnees_decodees"
+            }
+            \end{verbatim}
+
+            Le script côté serveur vérifie alors la validité des données décodées, puis si cela est valide, crée un nouveau challenge. Si notre script résout cent challenges, la prochaine requête au serveur permettra d'afficher le \textit{flag} dans la sortie standard.
+            
+
         \subsubsection{Résultat}
-        % Contenu à rédiger ici
-        
+            Pour résoudre le challenge, nous nous sommes donc appuyés sur les scripts python du challenge afin de développer un script de résolution (voir ...).
+
+            \begin{figure}[H]
+                \centering
+                % La commande pour insérer l'image.
+                % 'width=0.8\linewidth' signifie que l'image fera 80% de la largeur du texte.
+                \includegraphics[width=0.8\linewidth]{Images/Encode/encode_chall_result.png}
+                
+                % La légende qui apparaîtra sous l'image.
+                \caption{Ceci est le schéma explicatif de notre méthode.}
+                
+                % L'étiquette pour y faire référence plus tard.
+                \label{fig:encodeChallRes}
+            \end{figure}
+
+            Après cent requêtes valides, le \textit{flag} \textit{crypto\{3nc0d3\_d3c0d3\_3nc0d3\}} a été obtenu, permettant la validation du challenge.
+            
     \subsection{Xor (Lemur)}
+            La deuxième sous-partie de la catégorie \textit{General} est consacrée à 
+        l'opération XOR (ou exclusif), un concept fondamental en cryptographie 
+        constituant l'une des briques de base de nombreux algorithmes de chiffrement. 
+        Sa simplicité de mise en œuvre et ses propriétés mathématiques uniques en font 
+        un outil puissant pour manipuler l'information.
+        
+        Comprendre le fonctionnement du XOR est une étape cruciale, car il se situe à la 
+        frontière entre l'opération logique et le chiffrement. L'une de ses propriétés 
+        essentielles est sa réversibilité: appliquer deux fois la même clé XOR 
+        à une donnée permet de retrouver la donnée originale ($A \oplus K \oplus K = A$). 
+        Cette caractéristique est au cœur de son utilisation dans des chiffrements à flux 
+        comme le One-Time Pad.
+        
+        Nous avons décidé de présenter le challenge le plus représentatif de cette partie, 
+        nommé \textit{Lemur XOR}.
+        
         \subsubsection{Objectifs}
-        % Contenu à rédiger ici
+        
+        Le but de ce challenge est de retrouver le \textit{flag}, à partir de deux images fournies : \texttt{lemur.png} et \texttt{flag.png}. L'énoncé nous apprend que ces deux images ont été chiffrées avec l'opération XOR en utilisant la même clé secrète.
+
+        \begin{figure}[htbp] % L'environnement figure global
+            \centering % Pour centrer le bloc des deux images
+        
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{Images/Lemur/flag.png} % Première image
+            \end{minipage}
+            \hfill % Ajoute un espace horizontal flexible entre les images
+            \begin{minipage}{0.48\textwidth}
+                \centering
+                \includegraphics[width=\linewidth]{Images/Lemur/lemur_ed66878c338e662d3473f0d98eedbd0d.png} % Deuxième image
+            \end{minipage}
+        
+            \caption{Ceci est la légende commune pour les deux images.}
+            \label{fig:deux-images}
+        \end{figure}
+        
+        Le principe de résolution repose sur le fait qu'appliquer deux fois un XOR avec la même clé annule l'opération. En effectuant un XOR entre les deux images chiffrées que nous possédons, la clé secrète commune s'élimine, ne laissant que le résultat du XOR entre les deux images originales. C'est sur cette image combinée que le \textit{flag} devrait devenir visible.
         
         \subsubsection{Méthode}
-        % Contenu à rédiger ici
+        
+        Pour résoudre ce challenge, nous avons utilisé un script en Python avec la bibliothèque de manipulation d'images \textbf{Pillow}. Nous avons commencé par charger les deux images, \texttt{lemur.png} et \texttt{flag.png}. Conformément aux instructions, nous avons appliqué l'opération XOR pixel par pixel sur les valeurs de couleur RVB, et non sur les fichiers entiers.
+        
+        Nous avons donc parcouru les deux images simultanément et calculé la nouvelle valeur de chaque pixel en effectuant un XOR sur ses composantes rouge, verte et bleue. Nous avons ensuite utilisé ces nouveaux pixels pour construire une image de sortie de mêmes dimensions que nous avons sauvegardée.
         
         \subsubsection{Résultat}
-        % Contenu à rédiger ici
+        
+            \begin{figure}[H]
+                \centering
+                % La commande pour insérer l'image.
+                % 'width=0.8\linewidth' signifie que l'image fera 80% de la largeur du texte.
+                \includegraphics[width=0.8\linewidth]{Images/Lemur/xored_result.png}
+                
+                % La légende qui apparaîtra sous l'image.
+                \caption{Ceci est le schéma explicatif de notre méthode.}
+                
+                % L'étiquette pour y faire référence plus tard.
+                \label{fig:encodeChallRes}
+            \end{figure}
+
+        
         
     \subsection{Data formats (Transparency)}
         \subsubsection{Introduction}
