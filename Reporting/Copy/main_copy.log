@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  18 OCT 2025 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  18 OCT 2025 15:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/main.tex
-(/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/main.tex
+**/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/main_copy.tex
+(/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/main_copy.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -22,7 +22,7 @@ File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (./preambule.tex (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
@@ -208,44 +208,43 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip49
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 21.
-Package hyperref Info: Option `colorlinks' set `true' on input line 41.
-) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+Package hyperref Info: Option `colorlinks' set `true' on input line 22.
+ (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box52
-) (./main.aux (./introduction.aux) (./gestion_projet.aux) (./general.aux
+) (./main_copy.aux
 
 LaTeX Warning: Label `fig:encodeChallRes' multiply defined.
 
-) (./diffie_hellman.aux) (./rsa.aux) (./conclusion.aux))
-\openout1 = `main.aux'.
+)
+\openout1 = `main_copy.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Info: Redefining \degres on input line 15.
-LaTeX Info: Redefining \up on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Info: Redefining \degres on input line 30.
+LaTeX Info: Redefining \up on input line 30.
 
 
 Package french.ldf Warning: OT1 encoding should not be used for French.
 (french.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(french.ldf)                of your document; reported on input line 15.
+(french.ldf)                of your document; reported on input line 30.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -307,7 +306,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
 )
-Package hyperref Info: Link coloring ON on input line 15.
+Package hyperref Info: Link coloring ON on input line 30.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -317,18 +316,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count289
 )
-LaTeX Info: Redefining \ref on input line 15.
-LaTeX Info: Redefining \pageref on input line 15.
-LaTeX Info: Redefining \nameref on input line 15.
- (./main.out) (./main.out)
+LaTeX Info: Redefining \ref on input line 30.
+LaTeX Info: Redefining \pageref on input line 30.
+LaTeX Info: Redefining \nameref on input line 30.
+ (./main_copy.out) (./main_copy.out)
 \@outlinefile=\write3
-\openout3 = `main.out'.
+\openout3 = `main_copy.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 19.
+(Font)              <14.4> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
- (./main.toc
+(Font)              <7> on input line 34.
+ (./main_copy.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -339,129 +338,94 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
 \tf@toc=\write4
-\openout4 = `main.toc'.
+\openout4 = `main_copy.toc'.
 
  [2]
-\openout2 = `introduction.aux'.
-
- (./introduction.tex
-Underfull \hbox (badness 10000) in paragraph at lines 38--41
+Underfull \hbox (badness 10000) in paragraph at lines 78--81
 
  []
 
-[3
-
-]) [4]
-\openout2 = `gestion_projet.aux'.
-
- (./gestion_projet.tex
-Overfull \hbox (21.63646pt too wide) in paragraph at lines 45--48
+[3] [4]
+Overfull \hbox (21.63646pt too wide) in paragraph at lines 169--172
 []\OT1/cmr/m/n/12 Afin d'as-su-rer une or-ga-ni-sa-tion coh^^Serente et ef-fi-cace, nous avons adopt^^Se une \OT1/cmr/bx/n/12 m^^Sethodologie
  []
 
-[5
 
-
-
-])
-Overfull \hbox (4.879pt too wide) in paragraph at lines 74--28
+Overfull \hbox (4.879pt too wide) in paragraph at lines 198--204
 []\OT1/cmr/m/n/12 --- En somme, cette ges-tion de pro-jet s'est ap-puy^^See sur une \OT1/cmr/bx/n/12 com-mu-ni-ca-tion r^^Seguli^^Rere\OT1/cmr/m/n/12 ,
  []
 
-[6]
-\openout2 = `general.aux'.
-
- (./general.tex
-<Images/Encode/encode_chall_result.png, id=225, 738.76pt x 318.18875pt>
+[5]
+<Images/Encode/encode_chall_result.png, id=221, 738.76pt x 318.18875pt>
 File: Images/Encode/encode_chall_result.png Graphic file (type png)
 <use Images/Encode/encode_chall_result.png>
-Package pdftex.def Info: Images/Encode/encode_chall_result.png  used on input line 72.
+Package pdftex.def Info: Images/Encode/encode_chall_result.png  used on input line 276.
 (pdftex.def)             Requested size: 364.19667pt x 156.8606pt.
- [7
-
-
-
-]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 82.
+ [6]
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 286.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-<Images/Lemur/flag.png, id=233, 584.1825pt x 328.22626pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 286.
+<Images/Lemur/flag.png, id=228, 584.1825pt x 328.22626pt>
 File: Images/Lemur/flag.png Graphic file (type png)
 <use Images/Lemur/flag.png>
-Package pdftex.def Info: Images/Lemur/flag.png  used on input line 113.
+Package pdftex.def Info: Images/Lemur/flag.png  used on input line 317.
 (pdftex.def)             Requested size: 218.51521pt x 122.77402pt.
-<Images/Lemur/lemur.png, id=234, 584.1825pt x 328.22626pt>
+<Images/Lemur/lemur.png, id=229, 584.1825pt x 328.22626pt>
 File: Images/Lemur/lemur.png Graphic file (type png)
 <use Images/Lemur/lemur.png>
-Package pdftex.def Info: Images/Lemur/lemur.png  used on input line 119.
+Package pdftex.def Info: Images/Lemur/lemur.png  used on input line 323.
 (pdftex.def)             Requested size: 218.51521pt x 122.77402pt.
- [8 <./Images/Encode/encode_chall_result.png>]
-<Images/Lemur/xored_result.png, id=244, 584.1825pt x 328.22626pt>
+ [7 <./Images/Encode/encode_chall_result.png> <./Images/Lemur/flag.png (PNG copy)> <./Images/Lemur/lemur.png (PNG copy)>]
+<Images/Lemur/xored_result.png, id=241, 584.1825pt x 328.22626pt>
 File: Images/Lemur/xored_result.png Graphic file (type png)
 <use Images/Lemur/xored_result.png>
-Package pdftex.def Info: Images/Lemur/xored_result.png  used on input line 151.
+Package pdftex.def Info: Images/Lemur/xored_result.png  used on input line 355.
 (pdftex.def)             Requested size: 364.19667pt x 204.63005pt.
- [9 <./Images/Lemur/flag.png (PNG copy)> <./Images/Lemur/lemur.png (PNG copy)> <./Images/Lemur/xored_result.png (PNG copy)>] [10]) [11]
-\openout2 = `diffie_hellman.aux'.
+ [8 <./Images/Lemur/xored_result.png (PNG copy)>] [9]
+Overfull \hbox (24.60574pt too wide) in paragraph at lines 465--465
+ []        \OT1/cmtt/m/n/12 29ab37df0a4e4d252f0cf12ad854bede59038fdd9cd652cbc5c222edd26d77d2[] 
+ []
 
- (./diffie_hellman.tex
-Overfull \hbox (4.78534pt too wide) in paragraph at lines 3--7
+
+Overfull \hbox (4.78534pt too wide) in paragraph at lines 478--482
 []\OT1/cmr/m/n/12 Cette cat^^Segorie aborde le pro-to-cole d'^^Sechange de cl^^Ses de \OT1/cmr/bx/n/12 Diffie-Hellman\OT1/cmr/m/n/12 , un m^^Secanisme
  []
 
-[12
-
-
-
-]
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 82.
+[10]
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 557.
  (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-
-Overfull \hbox (11.8441pt too wide) in paragraph at lines 106--111
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 557.
+ [11]
+Overfull \hbox (11.8441pt too wide) in paragraph at lines 581--586
 []\OT1/cmr/m/n/12 L'objectif de ce chal-lenge est de cal-cu-ler une cl^^Se secr^^Rete par-tag^^See dans une impl^^Sementation
  []
 
-[13]) [14]
-\openout2 = `rsa.aux'.
-
- (./rsa.tex) [15
-
-
-
-]
-\openout2 = `conclusion.aux'.
-
- (./conclusion.tex) [16
-
-
-
-] (./main.aux (./introduction.aux) (./gestion_projet.aux) (./general.aux) (./diffie_hellman.aux) (./rsa.aux) (./conclusion.aux))
+[12] [13] (./main_copy.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
+Package rerunfilecheck Info: File `main_copy.out' has not changed.
 (rerunfilecheck)             Checksum: C382B6B13B53D6788A84C12BBEFF2E09;6038.
  ) 
 Here is how much of TeX's memory you used:
- 10823 strings out of 478287
- 174918 string characters out of 5849288
- 498183 words of memory out of 5000000
- 28772 multiletter control sequences out of 15000+600000
+ 10647 strings out of 478287
+ 170193 string characters out of 5849288
+ 496232 words of memory out of 5000000
+ 28644 multiletter control sequences out of 15000+600000
  475244 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,8n,66p,447b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,8n,63p,452b,560s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (16 pages, 1425710 bytes).
+Output written on main_copy.pdf (13 pages, 1424787 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 317 compressed objects within 4 object streams
- 75 named destinations out of 1000 (max. 500000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 306 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
  317 words of extra memory for PDF output out of 10000 (max. 10000000)
 
