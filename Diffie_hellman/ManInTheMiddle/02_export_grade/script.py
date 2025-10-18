@@ -47,17 +47,6 @@ p = int(p_hex, 16)
 g = int(g_hex, 16)
 public_A = int(A_hex, 16)
 public_B = int(B_hex, 16)
-"""
-# J'ai utilisé le site alpertron.com pour calculer les logs discret
-
-a = 2953274130565991911
-b = 8003835188138823828
-
-shared_secret = pow(public_B, a, p)
-
-print(decrypt_flag(shared_secret, iv, encrypted_flag))
-"""
-
 
 from sympy.ntheory.residue_ntheory import *
 a = discrete_log(p, public_A, g) 
