@@ -1,0 +1,83 @@
+\section{Introduction}
+
+\subsection{Contexte du projet}
+Ce rapport présente une série de challenges de cryptographie réalisés sur la
+plateforme CryptoHack. L'objectif est de documenter les approches
+méthodologiques et les solutions techniques que nous avons mis en oeuvre en
+binome pour résoudre les défis proposés. En préambule, il convient de situer
+le contexte de ce travail en présentant d'une part le rôle fondamental de la
+cryptographie en cybersécurité, et d'autre part l'intérêt des plateformes de
+type \textit{Capture The Flag} (CTF) comme outil d'apprentissage.
+
+\subsection{Place de la cryptographie en cybersécurité}
+La cryptographie est une discipline scientifique qui constitue l'un des
+piliers de la sécurité des systèmes d'information. Son objet est de
+développer des techniques permettant de protéger l'information contre toute
+modification ou accès non autorisé. En cybersécurité, la cryptographie vise
+à garantir plusieurs principes de sécurité fondamentaux.
+
+\paragraph{La confidentialité}
+Ce principe assure que seules les entités autorisées puissent accéder aux
+données. L'outil principal pour atteindre cet objectif est le chiffrement,
+qui consiste à transformer une information (le texte clair) en une forme
+inintelligible (le texte chiffré) à l'aide d'une clé secrète.
+
+\paragraph{L'intégrité}
+Ce principe garantit que les données n'ont pas été altérées ou corrompues,
+que ce soit de manière accidentelle ou intentionnelle, durant leur stockage
+ou leur transmission. Les fonctions de hachage et les codes
+d'authentification de message (MAC) sont des mécanismes cryptographiques
+courants pour vérifier l'intégrité.
+
+\paragraph{L'authenticité}
+Ce principe permet de vérifier l'identité d'une entité (un utilisateur, un
+serveur, etc.). Les certificats numériques et les signatures numériques sont
+des exemples de techniques cryptographiques assurant l'authentification.
+
+\paragraph{La non-répudiation}
+Ce principe empêche une entité de nier avoir effectué une action, comme
+l'envoi d'un message ou la validation d'une transaction. La signature
+numérique est le mécanisme de base pour fournir cette garantie.\\
+
+De la sécurisation des communications sur Internet (protocoles TLS/SSL) à
+la protection des données stockées, en passant par la sécurisation des
+transactions financières et la protection de la vie privée, les
+applications de la cryptographie sont omniprésentes et critiques. L'étude
+de ses mécanismes et de leurs implémentations est par conséquent
+essentielle pour tout praticien de la cybersécurité.
+
+\subsection{Les plateformes de CTF dans l'apprentissage}
+Les challenges de type \textit{Capture The Flag} (CTF) sont des exercices de
+cybersécurité offensifs et/ou défensifs. Les participants doivent résoudre
+des épreuves pour trouver une chaîne de caractères secrète, appelée
+\textit{flag}, cachée dans un système, un fichier ou encore un chiffré.
+
+Les plateformes de CTF comme \textit{root-me}, \textit{TryHackMe} ou encore
+\textit{CryptoHack} sont des environnements d'apprentissage pratiques et
+contrôlés où les utilisateurs peuvent appliquer des connaissances théoriques
+à travers des exercices thématiques. Cette approche par la pratique favorise
+une compréhension approfondie des vulnérabilités et des techniques
+d'exploitation.
+
+Ces plateformes couvrent un large éventail de domaines de la cybersécurité,
+tels que l'exploitation de binaires, la rétro-ingénierie (\textit{reverse
+engineering}), l'analyse forensique (\textit{digital forensics}), la
+sécurité des applications web et la cryptographie.
+
+\subsection{Présentation de CryptoHack}
+CryptoHack est une plateforme en ligne dédiée à l'apprentissage de la
+cryptographie moderne. Elle propose une série de challenges de type CTF qui
+permettent aux utilisateurs de se familiariser avec les principes, les
+algorithmes et les attaques cryptographiques. La plateforme est conçue pour
+être progressive, avec des défis de difficulté croissante.
+
+Les challenges sur CryptoHack se concentrent sur l'identification et
+l'exploitation de failles dans des implémentations de protocoles et
+d'algorithmes cryptographiques largement utilisés, tels que AES, RSA ou
+Diffie-Hellman.
+
+Chaque challenge est conçu pour illustrer un concept cryptographique
+spécifique ou une vulnérabilité connue. Les utilisateurs sont amenés à
+interagir avec des serveurs distants, à analyser du code source et à
+développer leurs propres scripts, principalement en Python, pour automatiser
+les attaques et récupérer les \textit{flags}.

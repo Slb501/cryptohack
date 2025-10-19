@@ -1,0 +1,34 @@
+% --- FICHIER PRINCIPAL : main.tex ---
+
+\documentclass[12pt, a4paper]{article}
+
+% On importe toute la configuration (packages, commandes, etc.)
+% depuis un fichier dédié pour plus de clarté.
+\input{preambule.tex}
+
+% --- INFORMATIONS DU DOCUMENT ---
+\title{Rapport de Projet : Cryptohack}
+\author{Victor Bailleul \and Seb}
+\date{\today}
+
+% --- DÉBUT DU DOCUMENT ---
+\begin{document}
+
+    % Crée la page de titre
+    \maketitle
+
+    % Génère la table des matières
+    \tableofcontents
+    \newpage
+
+    % --- INCLUSION DES CHAPITRES ---
+    % Chaque section du rapport est dans son propre fichier .tex.
+    % On utilise \include{} qui gère mieux les sauts de page pour les chapitres.
+    \include{Intro/introduction}
+    \include{Gestion/gestion_projet}
+    \include{General/general}
+    \include{DiffieHellman/diffie_hellman}
+    \include{RSA/rsa}
+    \include{Conclusion/conclusion}
+
+\end{document}
