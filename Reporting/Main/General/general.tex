@@ -165,46 +165,21 @@ sauvegardée.
 
 \subsection{Data formats}
 
-Le challenge s'appuie sur le principe de \emph{Certificate Transparency}
-(CT), une mesure de sécurité imposée aux Autorités de Certification (CA)
-pour garantir la transparence dans la délivrance des certificats TLS.
+Dans ce challenge, nous nous appuyons sur le principe de \emph{Certificate Transparency} (CT),une mesure de sécurité imposée aux Autorités de Certification (CA) pour garantir la transparence dans la délivrance des certificats TLS.
 
-Un certificat TLS (souvent appelé certificat SSL ou certificat numérique)
-est un document électronique qui remplit deux fonctions principales : il
-authentifie l'identité d'un site web ou d'un domaine auprès des clients
-(navigateurs, applications), et il permet d'établir une connexion
-chiffrée (TLS) entre le client et le serveur, garantissant la
-confidentialité et l'intégrité des données échangées.
+Nous rappelons qu'un certificat TLS (souvent appelé certificat SSL ou certificat numérique) remplit deux fonctions principales : il authentifie l'identité d'un site web ou d'un domaine auprès des clients (navigateurs, applications) et il permet d'établir une connexion chiffrée (TLS) entre le client et le serveur, garantissant la confidentialité et l'intégrité des données échangées.
 
-Un \emph{CT log} est une base de données publique, append-only (où l'on ne
-peut qu'ajouter des entrées) dans laquelle les certificats émis par les CA
-sont enregistrés. Aujourd'hui, les principales CA doivent publier (ou
-« soumettre ») chaque certificat qu'elles émettent dans au moins deux
-logs CT publics pour qu'il soit accepté et reconnu comme valide par les
-navigateurs modernes.
+Les \emph{CT logs} sont des bases de données publiques de type append-only (où l'on ne peut qu'ajouter des entrées) dans lesquelles les certificats émis par les CA sont enregistrés. Aujourd'hui, les principales CA publient chaque certificat dans au moins deux logs CT publics pour qu'il soit accepté par les navigateurs modernes. Nous exploitons ces journaux pour retrouver des certificats correspondant à une clé publique donnée.
 
-Ces logs sont audités et surveillés : chacun peut vérifier les entrées,
-détecter des certificats inattendus, ou vérifier la cohérence de la
-structure interne (par exemple via un arbre de Merkle) pour s'assurer
-qu'on ne cache pas d'entrées.
+Ces logs étant audités et surveillés, nous pouvons vérifier les entrées, détecter d'éventuels certificats inattendus et contrôler la cohérence de la structure  afin de s'assurer qu'aucune entrée n'est dissimulée.
 
 \subsubsection{Objectifs}
-L'objectif de ce challenge est double. Premièrement, il s'agit de
-retrouver le sous-domaine de cryptohack.org qui utilise la même clé
-publique que celle fournie dans le fichier transparency.pem dans son
-certificat TLS. Deuxièmement, en visitant ce sous-domaine, il faut
-obtenir le flag. À travers ce challenge, les objectifs pédagogiques sont
-d'abord de comprendre le fonctionnement d’un certificat TLS et sa
-structure (clé publique, signature, chaîne de confiance, etc.), ensuite
-de découvrir le système des Certificate Transparency logs, qui sont des
-bases de données publiques des certificats valides, puis d'apprendre à
-faire correspondre une clé publique à un certificat et enfin d'utiliser
-des outils d’investigation SSL/TLS et de recherche de certificats.
+Nos objectifs sont doubles. D'abord, nous voulons retrouver le sous-domaine de cryptohack.org qui utilise la même clé publique que celle fournie dans le fichier \texttt{transparency.pem} au sein de son certificat TLS. Ensuite, en visitant ce sous-domaine, nous souhaitons obtenir le flag.
+
+À travers ce challenge, nous visons d'abord à comprendre le fonctionnement d’un certificat TLS et sa structure (clé publique, signature, chaîne de confiance, etc.), ensuite de découvrir le système des Certificate Transparency logs, qui sont des bases de données publiques des certificats valides, puis d'apprendre à faire correspondre une clé publique à un certificat et enfin d'utiliser des outils d’investigation SSL/TLS et de recherche de certificats.
 
 \subsubsection{Méthode}
-Le fichier fourni est au format PEM (Privacy-Enhanced Mail), un format
-standard pour les clés cryptographiques qui utilise l'encodage Base64.
-La clé publique fournie était la suivante :
+Nous partons d'un fichier au format PEM (Privacy-Enhanced Mail), un format standard pour les clés cryptographiques qui utilise l'encodage Base64. La clé publique fournie est la suivante :
 
 \begin{verbatim}
 -----BEGIN PUBLIC KEY-----
@@ -218,35 +193,21 @@ sQIDAQAB
 -----END PUBLIC KEY-----
 \end{verbatim}
 
-\paragraph{Première étape} On commence par comprendre comment relier une
-empreinte SHA-256 à un certificat TLS complet et comment extraire la clé
-publique d'un certificat. Un certificat TLS X.509 contient une clé
-publique encapsulée et la représentation DER est la base sur laquelle on
-calcule l'empreinte SHA-256 utilisée par certains services (par exemple
-\texttt{crt.sh} avec le paramètre \texttt{spkisha256}). Les formats PEM
-(texte Base64) et DER (binaire) sont simplement deux représentations
-interchangeables de la même information.
+\paragraph{Première étape} Nous commençons par comprendre comment relier l’empreinte SHA-256 d’une clé publique à un certificat TLS complet et comment extraire la clé publique d'un certificat. Un certificat TLS X.509 contient une clé publique encapsulée et la représentation DER sert de base au calcul de l'empreinte SHA-256 utilisée par certains services (par exemple \texttt{crt.sh} avec le paramètre \texttt{spkisha256}). Les formats PEM (texte Base64) et DER (binaire) sont deux représentations interchangeables de la même information.
 
-\paragraph{Deuxième étape} La conception du script suit plusieurs
-objectifs : générer l'empreinte SHA-256 de la clé publique fournie,
-interroger les CT logs (par exemple via \texttt{crt.sh}) pour retrouver
-les certificats correspondants, télécharger le certificat complet (PEM)
-identifié dans les logs, extraire le nom de domaine du certificat,
-puis accéder au sous-domaine identifié pour récupérer le flag.
+\paragraph{Deuxième étape} Nous concevons un script qui suit plusieurs objectifs : générer l'empreinte SHA-256 de la clé publique fournie, interroger les CT logs (par exemple via \texttt{crt.sh}) pour retrouver les certificats correspondants, télécharger le certificat complet (PEM) identifié dans les logs, extraire le nom de domaine du certificat, puis accéder au sous-domaine identifié pour récupérer le flag.
 
-\subsubsection{Résultat (Revoir présentation des resutlats)}
-L'exécution du script a produit les résultats suivants :
-\begin{itemize}
-    \item \textbf{Empreinte (SHA-256):}
-    \begin{verbatim}
-    29ab37df0a4e4d252f0cf12ad854bede59038fdd9cd652cbc5c222edd26d77d2
-    \end{verbatim}
-    \item \textbf{Sous-domaine identifié :}
-    \begin{verbatim}
-    thetransparencyflagishere.cryptohack.org
-    \end{verbatim}
-    \item \textbf{Flag obtenu :}
-    \begin{verbatim}
-    crypto{thx_redpwn_for_inspiration}
-    \end{verbatim}
-\end{itemize}
+\subsubsection{Résultats}
+L'exécution de notre script nous a donné les éléments suivants :
+\begin{table}[H]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabularx}{\linewidth}{|>{\bfseries}p{0.35\linewidth}|X|}
+        \hline
+        Empreinte (SHA-256): & \texttt{\seqsplit{29ab37df0a4e4d252f0cf12ad854bede59038fdd9cd652cbc5c222edd26d77d2}} \\ \hline
+        Sous-domaine identifié : & \texttt{\seqsplit{thetransparencyflagishere.cryptohack.org}} \\ \hline
+    \end{tabularx}
+\end{table}
+\begin{center}
+    \texttt{crypto\{thx\_redpwn\_for\_inspiration\}}
+\end{center}

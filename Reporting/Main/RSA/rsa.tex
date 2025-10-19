@@ -1,97 +1,44 @@
-    \section{RSA}
-    \subsection{Introduction au cryptosystème RSA}
-    Cette catégorie aborde le cryptosystème à clé publique
-    \textbf{RSA}, décrit pour la première fois en 1977. C’est l’un des
-    systèmes de chiffrement asymétrique les plus connus et les plus
-    utilisés dans le monde.
 
-    RSA repose sur un principe fondamental : la difficulté de factoriser de
-    grands nombres composés en leurs facteurs premiers. Cette propriété
-    mathématique permet de garantir la sécurité du système, à condition que
-    les paramètres soient choisis et implémentés correctement.
+\section{RSA}
+\subsection{Introduction au cryptosystème RSA}
+Dans cette catégorie, nous abordons le cryptosystème à clé publique \textbf{RSA}, décrit pour la première fois en 1977. C’est l’un des systèmes de chiffrement asymétrique les plus connus et les plus utilisés dans le monde.
 
-    Le cryptosystème RSA possède deux usages principaux. Le premier est le
-    \textbf{chiffrement}, où un utilisateur publie une clé publique
-    permettant à d’autres de lui envoyer des messages chiffrés, qu’il peut
-    ensuite déchiffrer grâce à sa clé privée. Le second est la
-    \textbf{signature numérique}, qui permet à un utilisateur de signer un
-    message avec sa clé privée, afin que quiconque puisse vérifier
-    l’authenticité et l’intégrité du message à l’aide de la clé publique
-    correspondante.
+Nous nous appuyons sur le principe fondamental de RSA : la difficulté de factoriser de grands nombres composés en leurs facteurs premiers. Cette propriété mathématique nous permet de garantir la sécurité du système, à condition de choisir et d’implémenter correctement les paramètres.
 
-    Les challenges de cette section ont pour objectif d’explorer les
-    fondements du cryptosystème RSA, tout en mettant en évidence les erreurs
-    courantes et les failles d’implémentation qui ont, dans certains cas,
-    conduit à des attaques réelles causant des pertes financières
-    considérables.
+Le cryptosystème RSA possède deux usages principaux. Le premier est le \textbf{chiffrement}, où nous publions une clé publique permettant à d’autres de nous envoyer des messages chiffrés, que nous pouvons ensuite déchiffrer grâce à notre clé privée. Le second est la \textbf{signature numérique}, qui nous permet de signer un message avec notre clé privée, afin que quiconque puisse vérifier l’authenticité et l’intégrité du message à l’aide de la clé publique correspondante.
 
-    \subsection{RSA Multi-Factor Attack}
-    Le challenge \texttt{"ManyPrime"} propose un fichier contenant un
-    module RSA $n$, un exposant public $e$ et un ciphertext $ct$. L'énoncé
-    contient deux indices explicites : l'auteur indique qu'il utilisera
-    "over 30" facteurs premiers et renvoie vers la méthode des courbes
-    elliptiques (ECM). Ces indications orientent la stratégie d'attaque :
-    extraire un grand nombre de facteurs premiers relativement petits grace à
-    l'ECM, et retrouver la clef privée pour déchiffrer le message.
+Les challenges de cette section ont pour objectif de nous faire explorer les fondements du cryptosystème RSA, tout en mettant en évidence les erreurs courantes et les failles d’implémentation qui ont, dans certains cas, conduit à des attaques réelles causant des pertes financières considérables.
 
-    \subsubsection{Objectifs}
-    L'objectif est donc de récupérer le flag contenu dans le ciphertext.
-    Concrètement, il faut factoriser \textbf{n} en l'ensemble de ses facteurs
-    premiers. Puis calculer $d = e^{-1} \pmod{\varphi(n)}$ où
-    $\varphi(n)=\prod_i (p_i-1)$ et finalement déchiffrer
-    $\mathrm{ct}$ pour obtenir le plaintext (le flag).
 
-    \subsubsection{Méthode}
-    \paragraph{Principe de l'attaque}
-    La vulnérabilité exploitée dans ce scénario réside dans une conception
-    cryptographique déficiente : la construction d'un module RSA comme
-    produit d'un grand nombre de facteurs premiers de petite taille. Cette
-    approche, bien que contre-intuitive, affaiblit considérablement la
-    résistance du module aux algorithmes de factorisation modernes. En
-    effet, les méthodes de factorisation telles qu'ECM (Elliptic Curve
-    Method) deviennent particulièrement efficaces lorsque le plus grand
-    facteur premier n'excède pas une certaine taille critique.
+\subsection{RSA Multi-Factor Attack}
+Dans le challenge \texttt{"ManyPrime"}, nous disposons d’un fichier contenant un module RSA $n$, un exposant public $e$ et un ciphertext $ct$. L’énoncé nous donne deux indices explicites : l’auteur indique qu’il utilisera "over 30" facteurs premiers et renvoie vers la méthode des courbes elliptiques (ECM). Ces indications orientent notre stratégie d’attaque : extraire un grand nombre de facteurs premiers relativement petits grâce à l’ECM, puis retrouver la clé privée pour déchiffrer le message.
 
-    \paragraph{Mise en œuvre pratique}
-    La première étape consiste à configurer l'environnement de calcul en
-    initialisant un environnement Python virtuel et en installant les
-    bibliothèques spécialisées nécessaires. La bibliothèque
-    \texttt{primefac} fournit l'implémentation de l'algorithme ECM,
-    tandis que \texttt{pycryptodome} offre les primitives cryptographiques
-    essentielles pour les opérations arithmétiques modulaires.
 
-    Le processus de factorisation proprement dit s'articule autour d'une
-    boucle itérative. Initialement, une variable temporaire
-    \texttt{current} reçoit la valeur du module $n$ à factoriser. À chaque
-    itération, tant que \texttt{current} demeure composite, l'algorithme
-    ECM est invoqué via \texttt{primefac.ecm()} pour en extraire un facteur
-    premier $p$. Ce facteur est immédiatement ajouté à une liste de
-    facteurs reconnus, tandis que \texttt{current} est mis à jour par
-    division entière par $p$. Une vérification systématique de la primalité
-    du résidu guide la progression du processus.
+\subsubsection{Objectifs}
+Notre objectif est de récupérer le flag contenu dans le ciphertext. Concrètement, nous devons factoriser \textbf{n} en l’ensemble de ses facteurs premiers, puis calculer $d = e^{-1} \pmod{\varphi(n)}$ où $\varphi(n)=\prod_i (p_i-1)$, et enfin déchiffrer $\mathrm{ct}$ pour obtenir le plaintext (le flag).
 
-    \paragraph{Reconstruction et déchiffrement}
-    Une fois la factorisation complétée, une phase de validation est
-    entreprise. L'intégrité de la décomposition est vérifiée en recalculant
-    le produit de tous les facteurs identifiés, qui doit restituer exactement
-    la valeur originale $n$. La fonction indicatrice d'Euler est alors
-    calculée selon la relation $\varphi(n) = \prod (p_i - 1)$ pour
-    l'ensemble des facteurs premiers $p_i$.
 
-    L'exposant privé $d$ est déterminé comme solution de l'équation
-    $e \cdot d \equiv 1 \pmod{\varphi(n)}$ via l'algorithme d'Euclide
-    étendu. Finalement, le message chiffré $ct$ est déchiffré par
-    exponentiation modulaire selon la transformation $pt = ct^d \pmod{n}$,
-    restaurant ainsi le message original.
+\subsubsection{Méthode}
+\paragraph{Principe de l'attaque}
+La vulnérabilité que nous exploitons dans ce scénario réside dans une conception cryptographique déficiente : la construction d’un module RSA comme produit d’un grand nombre de facteurs premiers de petite taille. Cette approche, bien que contre-intuitive, affaiblit considérablement la résistance du module aux algorithmes de factorisation modernes. En effet, les méthodes de factorisation telles qu’ECM (Elliptic Curve Method) deviennent particulièrement efficaces lorsque le plus grand facteur premier n’excède pas une certaine taille critique.
 
-    Cette méthodologie démontre l'importance cruciale d'utiliser des
-    modules RSA composés de deux facteurs premiers de grande taille en
-    pratique cryptographique.
 
-    \subsubsection{Résultat}
-    Le script extrait plusieurs facteurs premiers et les affiche sur le
-    terminal. Les valeurs obtenues sont présentées dans le tableau ci-
-    dessous :
+\paragraph{Mise en œuvre pratique}
+Nous commençons par configurer notre environnement de calcul en initialisant un environnement Python virtuel et en installant les bibliothèques spécialisées nécessaires. La bibliothèque \texttt{primefac} fournit l’implémentation de l’algorithme ECM, tandis que \texttt{pycryptodome} offre les primitives cryptographiques essentielles pour les opérations arithmétiques modulaires.
+
+Le processus de factorisation proprement dit s’articule autour d’une boucle itérative. Initialement, une variable temporaire \texttt{current} reçoit la valeur du module $n$ à factoriser. À chaque itération, tant que \texttt{current} demeure composite, nous invoquons l’algorithme ECM via \texttt{primefac.ecm()} pour en extraire un facteur premier $p$. Ce facteur est immédiatement ajouté à une liste de facteurs reconnus, tandis que \texttt{current} est mis à jour par division entière par $p$. Nous vérifions systématiquement la primalité du résidu pour guider la progression du processus.
+
+
+\paragraph{Reconstruction et déchiffrement}
+Une fois la factorisation complétée, nous validons la décomposition en recalculant le produit de tous les facteurs identifiés, qui doit restituer exactement la valeur originale $n$. Nous calculons ensuite la fonction indicatrice d’Euler selon la relation $\varphi(n) = \prod (p_i - 1)$ pour l’ensemble des facteurs premiers $p_i$.
+
+Nous déterminons l’exposant privé $d$ comme solution de l’équation $e \cdot d \equiv 1 \pmod{\varphi(n)}$ via l’algorithme d’Euclide étendu. Enfin, nous déchiffrons le message chiffré $ct$ par exponentiation modulaire selon la transformation $pt = ct^d \pmod{n}$, restaurant ainsi le message original.
+
+Cette méthodologie nous montre l’importance cruciale d’utiliser des modules RSA composés de deux facteurs premiers de grande taille en pratique cryptographique.
+
+
+\subsubsection{Résultat}
+Notre script extrait plusieurs facteurs premiers et les affiche sur le terminal. Les valeurs obtenues sont présentées dans le tableau ci-dessous :
 
     \begin{table}[h!]
       \centering
@@ -110,81 +57,44 @@
       \label{tab:facteurs}
     \end{table}
 
-    Après les calculs de vérification et de déchiffrement, on obtient le
-    message en clair suivant :
+
+Après les calculs de vérification et de déchiffrement, nous obtenons le message en clair suivant :
 
     \begin{center}
       \texttt{crypto\{700\_m4ny\_5m4ll\_f4c70r5\}}
     \end{center}
 
-    \subsection{Cryptanalyse RSA avec exposant faible}
-    Cette sous-partie présente l'analyse du challenge « Vote for Pedro »
-    qui illustre une vulnérabilité cryptographique classique dans
-    l'implémentation du chiffrement RSA. Le challenge met en avant les
-    dangers liés à l'utilisation d'un exposant public faible, particulièrement
-    lorsque combiné avec des messages de petite taille et l'absence de
-    mécanisme de padding approprié. La résolution de ce challenge démontre
-    comment il est possible de forger des signatures sans disposer de la
-    clé privée, compromettant ainsi l'intégrité du système d'authentification.
 
-    \subsubsection{Objectifs}
-    L'objectif principal de ce challenge consiste à obtenir un flag en
-    votant pour Pedro avec une signature valide émise par Alice. Le
-    serveur vérifie la signature du vote en utilisant la clé publique
-    d'Alice et retourne le flag uniquement si le message déchiffré
-    correspond exactement à la chaîne « VOTE FOR PEDRO ». La difficulté
-    réside dans l'impossibilité d'accéder à la clé privée d'Alice pour
-    signer le message légitimement.
+\subsection{Cryptanalyse RSA avec exposant faible}
+Dans cette sous-partie, nous présentons l’analyse du challenge « Vote for Pedro » qui illustre une vulnérabilité cryptographique classique dans l’implémentation du chiffrement RSA. Ce challenge met en avant les dangers liés à l’utilisation d’un exposant public faible, particulièrement lorsque combiné avec des messages de petite taille et l’absence de mécanisme de padding approprié. En le résolvant, nous montrons comment il est possible de forger des signatures sans disposer de la clé privée, compromettant ainsi l’intégrité du système d’authentification.
 
-    \subsubsection{Méthode}
-    Le challenge fournit deux éléments essentiels : le script du serveur
-    et la clé publique d'Alice. L'analyse du script serveur révèle le
-    mécanisme de vérification des signatures. Le serveur reçoit un vote
-    signé sous forme hexadécimale, applique la vérification RSA en
-    calculant le vote à la puissance de l'exposant public modulo $N$, puis
-    convertit le résultat en bytes. Le message est ensuite extrait en
-    prenant la partie suivant le dernier octet nul avant d'être comparé
-    avec la chaîne attendue.
 
-    La clé publique d'Alice présente une particularité cruciale :
-    l'exposant public $e = 3$. Cette valeur faible, combinée avec l'absence
-    de padding robuste, crée une vulnérabilité exploitable en permettant
-    une attaque par extraction de racine cubique. En effet, lorsque le
-    message original est inférieur à la racine cubique de $N$, l'opération
-    de signature peut être inversée sans recours au modulo, rendant
-    possible la forge de signature.
+\subsubsection{Objectifs}
+Notre objectif principal dans ce challenge est d’obtenir un flag en votant pour Pedro avec une signature valide émise par Alice. Le serveur vérifie la signature du vote en utilisant la clé publique d’Alice et retourne le flag uniquement si le message déchiffré correspond exactement à la chaîne « VOTE FOR PEDRO ». La difficulté réside dans l’impossibilité d’accéder à la clé privée d’Alice pour signer le message légitimement.
 
-    \paragraph{Principe mathématique}
-    Le système vérifie la signature via l'équation RSA standard
-    $\text{vote}^e \pmod{N}$. Avec $e = 3$ et un message $M$ suffisamment
-    petit ($M < \sqrt[3]{N}$), l'opération modulo devient inutile,
-    simplifiant l'équation en $\text{vote}^3 = M$. La signature s'obtient
-    donc par calcul direct de $\sqrt[3]{M}$.
 
-    Le message « VOTE FOR PEDRO » n'étant pas un cube parfait, on cherche
-    un entier $S$ tel que $S^3$ partage les mêmes bits de poids faible que
-    le message original. Cette condition est suffisante car le serveur
-    extrait le message après le dernier octet nul, ignorant les bits de
-    poids fort.
+\subsubsection{Méthode}
+Le challenge nous fournit deux éléments essentiels : le script du serveur et la clé publique d’Alice. En analysant le script serveur, nous révélons le mécanisme de vérification des signatures. Le serveur reçoit un vote signé sous forme hexadécimale, applique la vérification RSA en calculant le vote à la puissance de l’exposant public modulo $N$, puis convertit le résultat en bytes. Le message est ensuite extrait en prenant la partie suivant le dernier octet nul avant d’être comparé avec la chaîne attendue.
 
-    \paragraph{Algorithme de résolution}
-    L'algorithme \texttt{cube\_root\_2\_pow} calcule la racine cubique bit par
-    bit. Initialisé avec $s = c \pmod{8}$ pour capturer les trois bits de
-    poids faible, il procède par raffinement successif. Pour chaque
-    position $k$, il ajuste le bit correspondant pour minimiser la
-    différence entre $s^3$ et $c$ modulo $2^k$, garantissant la convergence
-    vers la solution optimale.
+La clé publique d’Alice présente une particularité cruciale : l’exposant public $e = 3$. Cette valeur faible, combinée avec l’absence de padding robuste, crée une vulnérabilité exploitable en permettant une attaque par extraction de racine cubique. En effet, lorsque le message original est inférieur à la racine cubique de $N$, l’opération de signature peut être inversée sans recours au modulo, rendant possible la forge de signature.
 
-    \paragraph{Implémentation technique}
-    L'implémentation établit une connexion socket, convertit le message en
-    entier via \texttt{bytes\_to\_long}, et calcule la racine cubique avec
-    une précision adaptée. La signature résultante est convertie en
-    hexadécimal et transmise dans un payload JSON conforme au protocole
-    attendu par le serveur.
 
-    \subsubsection{Résultat}
-    L'exécution du script de résolution produit le résultat suivant après
-    connexion au serveur :
+\paragraph{Principe mathématique}
+Le système vérifie la signature via l’équation RSA standard $\text{vote}^e \pmod{N}$. Avec $e = 3$ et un message $M$ suffisamment petit ($M < \sqrt[3]{N}$), l’opération modulo devient inutile, simplifiant l’équation en $\text{vote}^3 = M$. Nous obtenons donc la signature par calcul direct de $\sqrt[3]{M}$.
+
+Le message « VOTE FOR PEDRO » n’étant pas un cube parfait, nous cherchons un entier $S$ tel que $S^3$ partage les mêmes bits de poids faible que le message original. Cette condition est suffisante car le serveur extrait le message après le dernier octet nul, ignorant les bits de poids fort.
+
+
+\paragraph{Algorithme de résolution}
+Notre algorithme \texttt{cube\_root\_2\_pow} calcule la racine cubique bit par bit. Initialisé avec $s = c \pmod{8}$ pour capturer les trois bits de poids faible, il procède par raffinement successif. Pour chaque position $k$, nous ajustons le bit correspondant pour minimiser la différence entre $s^3$ et $c$ modulo $2^k$, garantissant la convergence vers la solution optimale.
+
+
+\paragraph{Implémentation technique}
+Dans notre implémentation, nous établissons une connexion socket, convertissons le message en entier via \texttt{bytes\_to\_long}, et calculons la racine cubique avec une précision adaptée. La signature résultante est convertie en hexadécimal et transmise dans un payload JSON conforme au protocole attendu par le serveur.
+
+
+\subsubsection{Résultat}
+L’exécution de notre script de résolution produit le résultat suivant après connexion au serveur :
 
     \begin{verbatim}
     Place your vote. Pedro offers a reward to anyone who votes for him!
