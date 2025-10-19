@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from pathlib import Path 
 from cryptography import x509
 from cryptography.hazmat.backends import default_backend 

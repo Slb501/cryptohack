@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from Crypto.PublicKey import RSA
 
 #python3 -m venv ~/myenv

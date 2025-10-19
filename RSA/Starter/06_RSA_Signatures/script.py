@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from Crypto.Util.number import bytes_to_long
 from hashlib import sha256
 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 def egcd(p,q):
     if p == 0:

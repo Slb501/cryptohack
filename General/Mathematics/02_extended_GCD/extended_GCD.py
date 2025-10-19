@@ -1,5 +1,5 @@
+#!/usr/bin/env python3
 
-#returns (u,v),  
 #p*u+q*v=gcd(p,q)
 def egcd(p,q):
     if p == 0:
