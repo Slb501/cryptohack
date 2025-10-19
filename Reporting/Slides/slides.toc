@@ -1,0 +1,5 @@
+\babel@toc {french}{}\relax 
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@sectionintoc {2}{Challenge 1 : [Nom du challenge]}{4}{0}{2}
+\beamer@sectionintoc {3}{Challenge 2 : [Nom du challenge]}{7}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{10}{0}{4}

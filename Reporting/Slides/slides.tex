@@ -1,0 +1,48 @@
+% --- FICHIER PRINCIPAL : presentation.tex ---
+
+\documentclass{beamer}
+
+% --- PRÉAMBULE ET PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx} % Pour inclure des images et le logo
+
+% --- THÈME ET APPARENCE ---
+\usetheme{Berlin}             % Thème populaire avec navigation sur le côté
+\usecolortheme{whale}           % Palette de couleurs sobre (bleu/blanc)
+\setbeamertemplate{navigation symbols}{} % Cache les petits boutons de navigation
+
+% --- INFORMATIONS DE LA PRÉSENTATION ---
+\title{Rapport de Projet : Cryptohack}
+\author{Victor Bailleul \and Seb}
+\institute{Université Fictive de LaTeX} % Vous pouvez ajouter votre institution ici
+\date{\today}
+
+% --- DÉBUT DU DOCUMENT ---
+\begin{document}
+
+    % --- SLIDE DE TITRE ---
+    % Cette frame spéciale est créée à partir des informations ci-dessus
+    \begin{frame}
+        % On insère le logo en haut de la page de titre
+        \begin{figure}
+            % --- AJOUTEZ VOTRE LOGO ICI ---
+            % \includegraphics[height=1.5cm]{logo.png}
+        \end{figure}
+        \titlepage
+    \end{frame}
+
+    % --- TABLE DES MATIÈRES ---
+    % Affiche le plan de la présentation, mis à jour automatiquement
+    \begin{frame}{Plan de la présentation}
+        \tableofcontents
+    \end{frame}
+
+    % --- INCLUSION DES PARTIES ---
+    % Chaque partie est dans son propre fichier pour une meilleure organisation
+    \input{Intro/introduction.tex}
+    \input{Chall1/challenge1.tex}
+    \input{Chall2/challenge2.tex}
+    \input{Conclusion/conclusion.tex}
+
+\end{document}

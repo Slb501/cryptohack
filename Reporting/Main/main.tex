@@ -7,6 +7,7 @@
 \input{preambule.tex}
 
 % --- INFORMATIONS DU DOCUMENT ---
+% Ces informations seront utilisées dans la page de garde ci-dessous
 \title{Rapport de Projet : Cryptohack}
 \author{Victor Bailleul \and Seb}
 \date{\today}
@@ -14,21 +15,69 @@
 % --- DÉBUT DU DOCUMENT ---
 \begin{document}
 
-    % Crée la page de titre
-    \maketitle
+% --- PAGE DE GARDE PERSONNALISÉE ---
+\begin{titlepage}
+    \centering % Centre tout le contenu de la page de garde
 
-    % Génère la table des matières
-    \tableofcontents
-    \newpage
+    % Espace réservé pour le logo
+    \vspace*{1cm} % Espace en haut de la page
+    \begin{figure}[h!]
+        \centering
+        % --- AJOUTEZ VOTRE LOGO ICI ---
+        % Décommentez la ligne suivante et remplacez "logo.png"
+        % \includegraphics[width=0.4\textwidth]{logo.png}
+        
+        % Si vous n'avez pas de logo, vous pouvez laisser cet espace vide
+        % ou ajouter une ligne pour indiquer son emplacement.
+        \fbox{Emplacement du logo} % Affiche une boîte pour visualiser l'espace
+    \end{figure}
+    \vspace{2cm} % Espace vertical après le logo
 
-    % --- INCLUSION DES CHAPITRES ---
-    % Chaque section du rapport est dans son propre fichier .tex.
-    % On utilise \include{} qui gère mieux les sauts de page pour les chapitres.
+    % Affiche le titre en gros caractères
+    {\Huge\bfseries \thetitle\par}
+    \vspace{1.5cm} % Espace vertical
+
+    % Affiche les auteurs
+    {\Large \theauthor\par}
+    \vspace{1cm} % Espace vertical
+
+    % Affiche la date
+    {\large \today\par}
+
+    \vfill % Pousse le contenu restant vers le bas de la page
+
+    % Vous pouvez ajouter le nom de votre université ou institution ici
+    {\large Université Fictive de LaTeX\\ Année 2023-2024\par}
+    \vspace{1cm} % Espace en bas de la page
+
+\end{titlepage}
+% --- FIN DE LA PAGE DE GARDE ---
+
+
+% --- PARTIE PRÉLIMINAIRE ---
+    \pagenumbering{roman} % La numérotation commence ici, sur la page 'i'
+    \setcounter{page}{1}  % On force le compteur à 1 (la page sera 'i')
+
+    \tableofcontents % La table des matières sera 'i', 'ii', etc.
+
+% --- CORPS DU DOCUMENT ---
+    \clearpage
+    \pagenumbering{arabic} % On passe en chiffres arabes ET on remet le compteur à 1
+
+% --- INCLUSION DES CHAPITRES ---
     \input{Intro/introduction}
     \input{Gestion/gestion_projet}
     \input{General/general}
     \input{DiffieHellman/diffie_hellman}
     \input{RSA/rsa}
     \input{Conclusion/conclusion}
+
+% --- ANNEXES ---
+    \appendix
+    \newpage
+    \section*{Annexes}
+    \addcontentsline{toc}{section}{Annexes}
+
+    \input{Annexes/annexes.tex}
 
 \end{document}
