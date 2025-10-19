@@ -60,6 +60,20 @@
     par Bob a été relayée à Alice, établissant ainsi un accord sur un canal de
     communication affaibli.
 
+        \begin{figure}[H]
+            \centering
+            % La commande pour insérer l'image.
+            % 'width=0.8\linewidth' signifie que l'image fera 80% de la largeur du
+            % texte.
+            \includegraphics[width=0.9\linewidth]{Images/DiffieHellman/capture_mitm.png}
+
+            % La légende qui apparaîtra sous l'image.
+            \caption{Ceci est le schéma explicatif de notre méthode.}
+
+            % L'étiquette pour y faire référence plus tard.
+            \label{fig:mitmChallenge}
+        \end{figure}
+
     Une fois cet accord forcé, notre rôle est devenu passif. Nous avons
     collecté les paramètres publics de l'échange : le module \texttt{p}, le
     générateur \texttt{g}, et les clés publiques d'Alice (\texttt{A}) et de

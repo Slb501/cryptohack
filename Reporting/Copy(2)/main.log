@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  19 OCT 2025 17:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  19 OCT 2025 17:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/Main/main.tex
-(/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/Main/main.tex
+**/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/Copy(2)/main.tex
+(/home/bailleul/Documents/Universite/CYBER/Cryptohack/cryptohack/Reporting/Copy(2)/main.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -269,11 +269,11 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 43.
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box54
-) (./main.aux
+) (./main.aux (./Intro/introduction.aux) (./Gestion/gestion_projet.aux) (./General/general.aux
 
 LaTeX Warning: Label `fig:encodeChallRes' multiply defined.
 
-)
+) (./DiffieHellman/diffie_hellman.aux) (./RSA/rsa.aux) (./Conclusion/conclusion.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -391,28 +391,37 @@ LaTeX Info: Redefining \nameref on input line 15.
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- [2] (./Intro/introduction.tex
+ [2]
+\openout2 = `Intro/introduction.aux'.
+
+ (./Intro/introduction.tex
 Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
 
-[3]) (./Gestion/gestion_projet.tex [4]
-Overfull \hbox (21.63777pt too wide) in paragraph at lines 45--48
-[]\OT1/cmr/m/n/12 Afin d'as-su-rer une or-ga-ni-sa-tion coh^^Serente et ef-fi-cace, nous avons adopt^^Se une \OT1/cmr/bx/n/12 m^^Sethodologie
- []
+[3
 
-) (./General/general.tex
-Overfull \hbox (4.88031pt too wide) in paragraph at lines 74--1
-[]\OT1/cmr/m/n/12 --- En somme, cette ges-tion de pro-jet s'est ap-puy^^See sur une \OT1/cmr/bx/n/12 com-mu-ni-ca-tion r^^Seguli^^Rere\OT1/cmr/m/n/12 ,
- []
+]) [4]
+\openout2 = `Gestion/gestion_projet.aux'.
 
-[5]
+ (./Gestion/gestion_projet.tex) [5
+
+
+
+]
+\openout2 = `General/general.aux'.
+
+ (./General/general.tex
 <Images/Encode/encode_chall_result.png, id=261, 738.76pt x 318.18875pt>
 File: Images/Encode/encode_chall_result.png Graphic file (type png)
 <use Images/Encode/encode_chall_result.png>
 Package pdftex.def Info: Images/Encode/encode_chall_result.png  used on input line 72.
 (pdftex.def)             Requested size: 364.19667pt x 156.8606pt.
- [6]
+ [6
+
+
+
+]
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 82.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
@@ -429,45 +438,61 @@ File: Images/Lemur/lemur.png Graphic file (type png)
 <use Images/Lemur/lemur.png>
 Package pdftex.def Info: Images/Lemur/lemur.png  used on input line 119.
 (pdftex.def)             Requested size: 218.51521pt x 122.77402pt.
- [7 <./Images/Encode/encode_chall_result.png> <./Images/Lemur/flag.png (PNG copy)> <./Images/Lemur/lemur.png (PNG copy)>]
-<Images/Lemur/xored_result.png, id=281, 584.1825pt x 328.22626pt>
+ [7 <./Images/Encode/encode_chall_result.png>]
+<Images/Lemur/xored_result.png, id=280, 584.1825pt x 328.22626pt>
 File: Images/Lemur/xored_result.png Graphic file (type png)
 <use Images/Lemur/xored_result.png>
 Package pdftex.def Info: Images/Lemur/xored_result.png  used on input line 151.
 (pdftex.def)             Requested size: 364.19667pt x 204.63005pt.
- [8 <./Images/Lemur/xored_result.png (PNG copy)>] [9]) (./DiffieHellman/diffie_hellman.tex
+ [8 <./Images/Lemur/flag.png (PNG copy)> <./Images/Lemur/lemur.png (PNG copy)> <./Images/Lemur/xored_result.png (PNG copy)>] [9]) [10]
+\openout2 = `DiffieHellman/diffie_hellman.aux'.
+
+ (./DiffieHellman/diffie_hellman.tex
 Overfull \hbox (4.78665pt too wide) in paragraph at lines 3--7
 []\OT1/cmr/m/n/12 Cette cat^^Segorie aborde le pro-to-cole d'^^Sechange de cl^^Ses de \OT1/cmr/bx/n/12 Diffie-Hellman\OT1/cmr/m/n/12 , un m^^Secanisme
  []
 
-[10]
-<Images/DiffieHellman/capture_mitm.png, id=299, 958.58125pt x 155.58125pt>
-File: Images/DiffieHellman/capture_mitm.png Graphic file (type png)
-<use Images/DiffieHellman/capture_mitm.png>
-Package pdftex.def Info: Images/DiffieHellman/capture_mitm.png  used on input line 68.
-(pdftex.def)             Requested size: 409.71692pt x 66.49742pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 96.
+[11
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 82.
  (/usr/share/texmf/tex/latex/R/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
- [11 <./Images/DiffieHellman/capture_mitm.png>]
-Overfull \hbox (11.8441pt too wide) in paragraph at lines 120--125
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
+
+Overfull \hbox (11.8441pt too wide) in paragraph at lines 106--111
 []\OT1/cmr/m/n/12 L'objectif de ce chal-lenge est de cal-cu-ler une cl^^Se secr^^Rete par-tag^^See dans une impl^^Sementation
  []
 
-) (./RSA/rsa.tex [12]
+[12]) [13]
+\openout2 = `RSA/rsa.aux'.
+
+ (./RSA/rsa.tex
 Overfull \hbox (14.38574pt too wide) in paragraph at lines 20--24
 \OT1/cmr/m/n/12 syst^^Reme RSA, tout en met-tant en ^^Sevidence les er-reurs cou-rantes et les failles d'impl^^Sementation
  []
 
-[13]
+[14
+
+
+
+]
 Overfull \hbox (12.61005pt too wide) in paragraph at lines 52--57
  [][] 
  []
 
-[14]) (./Conclusion/conclusion.tex) [15] [16] (./main.aux)
+[15]) [16]
+\openout2 = `Conclusion/conclusion.aux'.
+
+ (./Conclusion/conclusion.tex) [17
+
+
+
+] (./main.aux (./Intro/introduction.aux) (./Gestion/gestion_projet.aux) (./General/general.aux) (./DiffieHellman/diffie_hellman.aux) (./RSA/rsa.aux) (./Conclusion/conclusion.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -475,18 +500,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 202F65083E51C362701A8E656361E3D5;7047.
  ) 
 Here is how much of TeX's memory you used:
- 11436 strings out of 478287
- 181899 string characters out of 5849288
- 508081 words of memory out of 5000000
- 29374 multiletter control sequences out of 15000+600000
+ 11559 strings out of 478287
+ 186842 string characters out of 5849288
+ 510094 words of memory out of 5000000
+ 29475 multiletter control sequences out of 15000+600000
  476369 words of font info for 53 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 65i,10n,66p,917b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,10n,66p,972b,565s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (16 pages, 1489932 bytes).
+Output written on main.pdf (17 pages, 1456678 bytes).
 PDF statistics:
- 418 PDF objects out of 1000 (max. 8388607)
- 361 compressed objects within 4 object streams
+ 419 PDF objects out of 1000 (max. 8388607)
+ 363 compressed objects within 4 object streams
  80 named destinations out of 1000 (max. 500000)
- 386 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 381 words of extra memory for PDF output out of 10000 (max. 10000000)
 
