@@ -23,3 +23,139 @@ from PIL import Image
 
 # ... (le reste de votre code) ...
 \end{verbatim}
+
+
+\section{Script de résolution du challenge Transparency}
+\label{annexe:script-transparency}
+
+Voici le code utilisé pour le challenge "Transparency".
+
+\begin{verbatim}
+#!/usr/bin/env python3
+
+from Crypto.PublicKey import RSA
+from OpenSSL.crypto import load_certificate, FILETYPE_PEM
+import hashlib
+import json
+import requests
+
+f = open("transparency_afff0345c6f99bf80eab5895458d8eab.pem")
+key = RSA.import_key(f.read()).public_key()
+
+sha256 = hashlib.sha256(key.exportKey(format="DER"))
+fp = sha256.hexdigest()
+print("fingerprint:", fp)
+
+user_agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1'
+url = "https://crt.sh/?spkisha256={hash}&output=json"
+
+req = requests.get(url.format(hash=fp), headers={'User-Agent': user_agent})
+content = req.content.decode('utf-8')
+data = json.loads(content)
+id = data[0]["id"]
+download_url = "https://crt.sh/?d={id}"
+req = requests.get(download_url.format(id=id), headers={'User-Agent': user_agent})
+PEMcert = req.content.decode('utf-8')
+
+cert = load_certificate(FILETYPE_PEM, PEMcert) 
+CN = cert.get_subject().commonName 
+print("Nom du domaine: ", CN)
+
+flag_url = "https://" + CN
+req = requests.get(flag_url, headers={'User-Agent': user_agent})
+flag = req.content.decode('utf-8')
+print("Flag:", flag)
+\end{verbatim}
+
+
+\section{Script de résolution du challenge Manyprime}
+\label{annexe:script-Manyprime}
+
+Voici le code utilisé pour le challenge "Manyprime".
+
+\begin{verbatim}
+#!/usr/bin/env python3
+
+from Crypto.Util.number import inverse, long_to_bytes
+import primefac
+import math
+
+n = ...
+e = 65537
+ct = ...
+
+factors = []
+current = n
+
+while current > 1:
+    if primefac.isprime(current):
+        factors.append(current)
+        break
+    else:
+        p = primefac.ecm(current)
+        print(f"p:{p}")
+        factors.append(p)
+        current //= p
+
+product = 1
+for p in factors:
+    product *= p
+assert n == product
+
+phi = 1
+for p in factors:
+    phi *= (p - 1)
+
+d = inverse(e, phi)
+pt = pow(ct, d, n)
+decrypted = long_to_bytes(pt)
+print(decrypted)
+\end{verbatim}
+
+\section{Script de résolution du challenge Vote for Pedro}
+\label{annexe:script-vote-for-pedro}
+
+
+\begin{verbatim}
+#!/usr/bin/env python3
+
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+import socket
+import json
+
+host = 'socket.cryptohack.org'
+port = 13375
+
+N = ...
+
+e = 3
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((host, port))
+data = sock.recv(1024)
+print(data)
+
+T = b'VOTE FOR PEDRO'
+c = bytes_to_long(T)
+
+def cube_root_2_pow(c, k_max):
+    s = c % 8
+    for k in range(3, k_max):
+        diff = s**3 - c
+        d = diff // (2**k)
+        t = (-d) % 2
+        s = s + t * (2**k)
+    return s
+
+s = cube_root_2_pow(c, len(T)*8 + 8)
+sign_hex = long_to_bytes(s).hex()
+
+payload = {
+    "option": "vote",
+    "vote": sign_hex
+}
+
+sock.send(json.dumps(payload).encode())
+flag = sock.recv(1024)
+print(flag)
+\end{verbatim}
