@@ -2,39 +2,40 @@
 
 \section{Challenge 2 : Vote for Pedro}
 
-\begin{frame}{Objectif}
-    \begin{itemize}
-        \item Service RSA de signature avec exposant public $e=3$.
-        \item Entrée: une \texttt{vote} supposée être une signature; vérification par $m = s^e \bmod N$.
-        \item Le serveur enlève le padding en coupant sur \texttt{\textbackslash x00} et compare à \texttt{``VOTE FOR PEDRO''}.
-        \item But: forger une signature $s$ telle que la vérification aboutisse à \texttt{VOTE FOR PEDRO}, sans clé privée.
-    \end{itemize}
+\begin{frame}{Objectifs du challenge}
+\centering
+{\LARGE Forger une signature RSA valide}\\
+\vspace{1cm}
+\begin{itemize}
+    \item Voter pour Pedro sans clé privée
+    \item Exploiter l'exposant faible $e = 3$
+    \item Obtenir le flag
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Vulnérabilité}
-    \begin{itemize}
-        \item Mauvaise vérification du format: le serveur prend \emph{la sous-chaîne après le dernier octet nul} au lieu d'un schéma de padding strict.
-        \item Avec $e=3$, on peut construire $s$ tel que les \emph{derniers octets} de $m=s^3$ soient \texttt{\textbackslash x00\,||\,``VOTE FOR PEDRO''}.
-        \item Comme $s$ est choisi petit, on a $s^3 < N$ donc la réduction modulo $N$ ne modifie pas les octets de fin de $m$.
-    \end{itemize}
+\begin{frame}{Méthode de résolution}
+\centering
+{\LARGE Attaque par racine cubique}
+\vspace{0.5cm}
+\begin{align*}
+\text{Signature } s &= \sqrt[3]{\text{Message}} \\
+s^3 &\equiv \text{Message} \pmod{N}
+\end{align*}
+\begin{itemize}
+    \item Message court = "VOTE FOR PEDRO"
+    \item Pas de padding = vulnérabilité
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Méthode}
-    \begin{itemize}
-        \item Posons $T=\texttt{``VOTE FOR PEDRO''}$ et $c=\mathrm{bytes\_to\_long}(T)$.
-        \item On construit $s$ tel que \[ s^3 \equiv c \pmod{2^{8(|T|+1)}}. \]
-        \item Technique: relèvement de Hensel en base 2 pour satisfaire la congruence sur $2^{8(|T|+1)}$.
-        \item Ainsi, en écriture big-endian, les \textbf{derniers} octets de $m=s^3$ valent \texttt{\textbackslash x00} puis $T$.
-        \item Le serveur fait \texttt{long\_to\_bytes($m$).split(\textbackslash x00)[-1]} $\Rightarrow$ récupère $T$ et renvoie le flag.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Conclusion}
-    \begin{itemize}
-        \item Challenge "Vote for Pedro" exploite une vulnérabilité RSA avec $e=3$ et absence de padding approprié.
-        \item La méthode consiste à forger des signatures en contournant le contrôle de padding.
-        \item Script disponible : \texttt{RSA/Signatures\_Part\_2/01\_Vote\_for\_Pedro/script.py}.
-        \item Résultat : Envoi de $s$ en hex via \texttt{option: "vote"}; le serveur valide et renvoie le flag.
-        \item Flag : `FLAG{example_flag}`; à remplacer par le vrai flag obtenu lors de l'exécution du script.
-    \end{itemize}
+\begin{frame}{Résultat et Flag}
+\centering
+{\LARGE Signature forgée validée !}
+\vspace{1cm}
+\begin{block}{Flag obtenu}
+\texttt{crypto\{y0ur\_v0t3\_i5\_my\_v0t3\}}
+\end{block}
+\begin{itemize}
+    \item Vote accepté par le serveur
+    \item Attaque réussie en quelques secondes
+\end{itemize}
 \end{frame}
