@@ -1,14 +1,14 @@
-    \section{Diffie-Hellman}
+    \section{Challenges : Diffie-Hellman}
     \subsection{Introduction à l'échange de clés Diffie-Hellman}
     Cette catégorie aborde le protocole d'échange de clés de
-    \textbf{Diffie-Hellman}, un mécanisme de cryptographie asymétrique.
+    Diffie-Hellman, un mécanisme de cryptographie asymétrique.
     Proposé en 1976, il a pour objectif de résoudre le problème de la
     distribution de clés sur un canal de communication non sécurisé.
 
     Le principe de ce protocole repose sur l'utilisation de fonctions
     mathématiques à sens unique, dont le calcul est aisé dans une direction
     mais calculatoirement difficile à inverser. Spécifiquement, Diffie-Hellman
-    s'appuie sur la difficulté du problème du \textbf{logarithme discret} dans
+    s'appuie sur la difficulté du problème du logarithme discret dans
     un groupe fini. Ce procédé permet à deux interlocuteurs d'établir une clé
     secrète partagée sans transmission préalable de celle-ci, y compris en
     présence d'un adversaire observant la communication.
@@ -18,9 +18,9 @@
     résulter d'une implémentation incorrecte ou d'un choix de paramètres
     inadéquat.
 
-    \subsection{L'attaque de l'homme du milieu (Man-in-the-Middle)}
+    \subsection{L'attaque de l'homme du milieu (\textit{Man-in-the-Middle})}
     Cette sous-partie examine une vulnérabilité du protocole Diffie-Hellman~:
-    l'attaque de l'homme du milieu (Man-in-the-Middle ou MitM). Le protocole de
+    l'attaque de l'homme du milieu (\textit{Man-in-the-Middle} ou MitM). Le protocole de
     base, dans sa forme originelle, ne fournit aucun mécanisme d'authentification
     des interlocuteurs. Il permet de s'assurer que la clé partagée est secrète,
     mais pas de vérifier l'identité de la personne avec qui on la partage.
@@ -37,10 +37,12 @@
     cette interception est mise en œuvre et comment elle compromet la
     confidentialité et l'intégrité de l'échange.
 
+    Pour illustrer ce type d'attaque, nous présentons le challenge \textit{Export-Grade}.
+
     \subsubsection{Objectifs}
     L'objectif de ce challenge est de compromettre la confidentialité d'un
     échange sécurisé par le protocole Diffie-Hellman. Le scénario repose sur
-    une attaque de l'homme du milieu (Man-in-the-Middle) durant la phase de
+    une attaque de l'homme du milieu (\textit{Man-in-the-Middle}) durant la phase de
     négociation des paramètres cryptographiques.
 
     La vulnérabilité exploitée est la capacité pour un attaquant d'influencer
@@ -65,24 +67,24 @@
             % La commande pour insérer l'image.
             % 'width=0.8\linewidth' signifie que l'image fera 80% de la largeur du
             % texte.
-            \includegraphics[width=0.9\linewidth]{Images/DiffieHellman/capture_mitm.png}
+            \includegraphics[width=0.95\linewidth]{Images/DiffieHellman/capture_mitm.png}
 
             % La légende qui apparaîtra sous l'image.
-            \caption{Ceci est le schéma explicatif de notre méthode.}
+            \caption{Capture d'écran de la communication interceptée entre Alice et Bob en tant que \textit{Man-In-The-Middle}.}
 
             % L'étiquette pour y faire référence plus tard.
             \label{fig:mitmChallenge}
         \end{figure}
 
     Une fois cet accord forcé, notre rôle est devenu passif. Nous avons
-    collecté les paramètres publics de l'échange : le module \texttt{p}, le
-    générateur \texttt{g}, et les clés publiques d'Alice (\texttt{A}) et de
-    Bob (\texttt{B}). La faible taille du module \texttt{p} a alors permis de
-    résoudre le problème du logarithme discret. À l'aide d'un script Python, nous
-    avons calculé la clé privée \texttt{a} d'Alice à partir des valeurs publiques
-    \texttt{p}, \texttt{g} et \texttt{A}.
-
-    La connaissance de cette clé privée nous a permis de reconstituer la clé
+    collecté les paramètres publics de l'échange : le module \textit{p}, le
+    générateur \textit{g}, et les clés publiques d'Alice (\textit{A}) et de
+    Bob (\textit{B}). La faible taille du module \textit{p} a alors permis de
+    résoudre le problème du logarithme discret. L'échange réalisé avec Alice et Bob est illustré \hyperref[fig:mitmChallenge]{Figure 5}. 
+    
+    À l'aide d'un script Python, nous
+    avons calculé la clé privée \textit{a} d'Alice à partir des valeurs publiques
+    \textit{p}, \textit{g} et \textit{A}. La connaissance de cette clé privée nous a permis de reconstituer la clé
     secrète partagée ($s = B^a \pmod{p}$). Cette dernière a servi à dériver la
     clé de session AES, avec laquelle nous avons déchiffré le message final
     pour obtenir le \textit{flag}.
@@ -96,10 +98,12 @@
         \texttt{crypto\{d0wn6r4d35\_4r3\_d4n63r0u5\}}
     \end{center}
 
+    Le script développé pour la résolution du challenge est présenté \hyperref[annexe:script-exportgrade]{Annexe E}.
+
     \subsection{Théorie des groupes}
     Cette sous-partie aborde les structures mathématiques qui sous-tendent de
     nombreux protocoles de cryptographie asymétrique~: les groupes. En
-    algèbre abstraite, un \textbf{groupe} est un ensemble d'éléments muni d'une
+    algèbre abstraite, un groupe est un ensemble d'éléments muni d'une
     opération binaire qui satisfait à des axiomes spécifiques (fermeture,
     associativité, existence d'un élément neutre et d'un inverse pour chaque
     élément).
@@ -107,8 +111,8 @@
     La sécurité de protocoles comme Diffie-Hellman ne repose pas sur les
     nombres en tant que tels, mais sur les propriétés structurelles de ces
     groupes mathématiques. Des concepts comme l'ordre d'un groupe, l'ordre
-    d'un élément, et la notion de \textbf{générateur} d'un \textbf{groupe
-    cyclique} sont des composantes directes de l'implémentation et de
+    d'un élément, et la notion de générateur d'un groupe
+    cyclique sont des composantes directes de l'implémentation et de
     l'analyse de sécurité de ces systèmes.
 
     Les challenges de cette section ont pour objectif d'étudier ces
@@ -116,12 +120,16 @@
     choix de ses paramètres, peuvent influencer la robustesse d'un schéma
     cryptographique.
 
+    Pour illustrer cette section, nous présentons le challenge \textit{Additive}.
+
     \subsubsection{Objectifs}
+    \begin{sloppypar}
     L'objectif de ce challenge est de calculer une clé secrète partagée dans une
     implémentation du protocole Diffie-Hellman utilisant un groupe additif.
     Contrairement à l'implémentation classique qui utilise un groupe
     multiplicatif d'entiers modulo un nombre premier, ce challenge transpose le
     problème dans une structure où l'opération de groupe est l'addition.
+    \end{sloppypar}
 
     Le principe de sécurité reste fondé sur la difficulté d'inverser une
     fonction à sens unique. Ici, l'opération équivalente à l'exponentiation est
@@ -132,30 +140,29 @@
 
     \subsubsection{Méthode}
     Le challenge nous fournit les paramètres publics d'un échange
-    Diffie-Hellman additif : un module premier \texttt{p}, un générateur
-    \texttt{g}, ainsi que les clés publiques d'Alice (\texttt{A}) et de Bob
-    (\texttt{B}). La relation qui lie la clé privée \texttt{a} à la clé
+    Diffie-Hellman additif : un module premier \textit{p}, un générateur
+    \textit{g}, ainsi que les clés publiques d'Alice (\textit{A}) et de Bob
+    (\textit{B}). La relation qui lie la clé privée \textit{a} à la clé
     publique \texttt{A} n'est plus $A = g^a \pmod{p}$, mais
     $A = a \cdot g \pmod{p}$.
 
     Le problème du logarithme discret se traduit ici par la résolution de
     l'équation $A \equiv a \cdot g \pmod{p}$ pour trouver l'inconnue
-    \texttt{a}. Cette équation est une congruence linéaire qui se résout
-    efficacement en calculant l'inverse modulaire de \texttt{g} modulo
-    \texttt{p}. Nous avons donc déterminé la clé privée d'Alice en calculant
+    \textit{a}. Cette équation est une congruence linéaire qui se résout
+    efficacement en calculant l'inverse modulaire de \textit{g} modulo
+    \textit{p}. Nous avons donc déterminé la clé privée d'Alice en calculant
     $a = A \cdot g^{-1} \pmod{p}$.
 
-    Une fois la clé privée \texttt{a} obtenue, nous avons pu calculer la clé
+    Une fois la clé privée \textit{a} obtenue, nous avons pu calculer la clé
     secrète partagée en appliquant l'opération du groupe avec la clé publique
     de Bob. L'opération étant la multiplication scalaire, la clé secrète
-    \texttt{s} est obtenue par la formule $s = a \cdot B \pmod{p}$.
+    \textit{s} est obtenue par la formule $s = a \cdot B \pmod{p}$.
 
     \subsubsection{Résultat}
     L'analyse de la structure de groupe additive a permis d'identifier la
     méthode de résolution appropriée. Le calcul de l'inverse modulaire nous a
     donné accès à la clé privée, menant directement à la reconstitution de la
-    clé secrète partagée. Le \textit{flag} obtenu est la valeur numérique de
-    cette clé secrète~:
+    clé secrète partagée. Nous avons obtenu le \textit{flag} suivant :
 
     \begin{center}
         \texttt{crypto\{cycl1c\_6r0up\_und3r\_4dd1710n?\}}

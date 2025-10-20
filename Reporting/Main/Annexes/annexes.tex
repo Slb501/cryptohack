@@ -1,38 +1,161 @@
 % --- FICHIER : Annexes/annexes.tex ---
 
-\section{Script de résolution du challenge Encoding}
-\label{annexe:script-encoding}
+% La commande \appendix du main.tex va automatiquement transformer cette section*
+% en "Annexe A : Script de résolution..."
+\section*{A - Script exécuté côté serveur pour le challenge \textit{Encoding challenge}}
+\label{annexe:script-server-encoding}
 
-Voici le code Python complet utilisé pour le challenge "Encoding".
+\begin{lstlisting}
+from Crypto.Util.number import bytes_to_long, long_to_bytes
+from utils import listener # this is cryptohack's server-side module and not part of python
+import base64
+import codecs
+import random
 
-% Pour du code, il est recommandé d'utiliser le package "listings"
-\begin{verbatim}
-import pwn
+FLAG = "crypto{????????????????????}"
+ENCODINGS = [
+    "base64",
+    "hex",
+    "rot13",
+    "bigint",
+    "utf-8",
+]
+with open('/usr/share/dict/words') as f:
+    WORDS = [line.strip().replace("'", "") for line in f.readlines()]
+
+
+class Challenge():
+    def __init__(self):
+        self.no_prompt = True # Immediately send data from the server without waiting for user input
+        self.challenge_words = ""
+        self.stage = 0
+
+    def create_level(self):
+        self.stage += 1
+        self.challenge_words = "_".join(random.choices(WORDS, k=3))
+        encoding = random.choice(ENCODINGS)
+
+        if encoding == "base64":
+            encoded = base64.b64encode(self.challenge_words.encode()).decode() # wow so encode
+        elif encoding == "hex":
+            encoded = self.challenge_words.encode().hex()
+        elif encoding == "rot13":
+            encoded = codecs.encode(self.challenge_words, 'rot_13')
+        elif encoding == "bigint":
+            encoded = hex(bytes_to_long(self.challenge_words.encode()))
+        elif encoding == "utf-8":
+            encoded = [ord(b) for b in self.challenge_words]
+
+        return {"type": encoding, "encoded": encoded}
+
+    #
+    # This challenge function is called on your input, which must be JSON
+    # encoded
+    #
+    def challenge(self, your_input):
+        if self.stage == 0:
+            return self.create_level()
+        elif self.stage == 100:
+            self.exit = True
+            return {"flag": FLAG}
+
+        if self.challenge_words == your_input["decoded"]:
+            return self.create_level()
+
+        return {"error": "Decoding fail"}
+
+
+import builtins; builtins.Challenge = Challenge # hack to enable challenge to be run locally, see https://cryptohack.org/faq/#listener
+listener.start_server(port=13377)
+\end{lstlisting}
+
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{B - Script de résolution du challenge \textit{Encoding challenge}}
+\label{annexe:script-res-encoding}
+
+\begin{lstlisting}
+from pwn import * # pip install pwntools
+from Crypto.Util.number import *
+import codecs
+import base64
 import json
 
-# ... (le reste de votre code) ...
-\end{verbatim}
+r = remote('socket.cryptohack.org', 13377, level = 'debug')
 
-\section{Script de résolution du challenge Lemur XOR}
+def json_recv():
+    line = r.recvline()
+    return json.loads(line.decode())
+
+def json_send(hsh):
+    request = json.dumps(hsh).encode()
+    r.sendline(request)
+
+
+for i in range(100):
+    received = json_recv()
+
+    print("Received type: ")
+    print(received["type"])
+    print("Received encoded value: ")
+    print(received["encoded"])
+
+    type = received["type"]
+    encoded = received["encoded"]
+
+    if type == "base64":
+        decoded = base64.b64decode(encoded).decode()
+    elif type == "hex":
+        decoded = bytes.fromhex(encoded).decode()
+    elif type == "rot13":
+        decoded = codecs.decode(encoded, 'rot_13')
+    elif type == "bigint":
+        decoded = long_to_bytes(int(encoded, 16)).decode()
+    elif type == "utf-8":
+        decoded = bytes(encoded).decode()
+
+    to_send = {
+    "decoded": decoded
+    }
+
+    json_send(to_send)
+
+json_recv()
+\end{lstlisting}
+
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{C - Script de résolution du challenge \textit{Lemur XOR}}
 \label{annexe:script-lemur}
 
-Voici le code utilisé pour le challenge "Lemur XOR".
-
-\begin{verbatim}
+\begin{lstlisting}
 from PIL import Image
+import sys
+from io import BytesIO
 
-# ... (le reste de votre code) ...
-\end{verbatim}
+def get_rgb_bytes(png_path):
+    with Image.open(png_path) as img:
+        img = img.convert('RGB')
+        return img.tobytes()
 
+lemur = get_rgb_bytes("lemur_ed66878c338e662d3473f0d98eedbd0d.png")
+flag = get_rgb_bytes("flag_7ae18c704272532658c10b5faad06d74.png")
 
-\section{Script de résolution du challenge Transparency}
+xored_result = []
+for i, c in enumerate(lemur):
+    xored_byte = c ^ flag[i % len(flag)]
+    xored_result.append(xored_byte)
+
+with Image.open("lemur_ed66878c338e662d3473f0d98eedbd0d.png") as img:
+    width, height = img.size
+
+result_img = Image.frombytes('RGB', (width, height), bytes(xored_result))
+result_img.save("xored_result.png")
+\end{lstlisting}
+
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{D - Script de résolution du challenge \textit{Transparency}}
 \label{annexe:script-transparency}
 
-Voici le code utilisé pour le challenge "Transparency".
-
-\begin{verbatim}
-#!/usr/bin/env python3
-
+\begin{lstlisting}
 from Crypto.PublicKey import RSA
 from OpenSSL.crypto import load_certificate, FILETYPE_PEM
 import hashlib
@@ -41,6 +164,7 @@ import requests
 
 f = open("transparency_afff0345c6f99bf80eab5895458d8eab.pem")
 key = RSA.import_key(f.read()).public_key()
+
 
 sha256 = hashlib.sha256(key.exportKey(format="DER"))
 fp = sha256.hexdigest()
@@ -56,7 +180,7 @@ id = data[0]["id"]
 download_url = "https://crt.sh/?d={id}"
 req = requests.get(download_url.format(id=id), headers={'User-Agent': user_agent})
 PEMcert = req.content.decode('utf-8')
-
+    #obtenir le nom du sous domaine
 cert = load_certificate(FILETYPE_PEM, PEMcert) 
 CN = cert.get_subject().commonName 
 print("Nom du domaine: ", CN)
@@ -65,28 +189,72 @@ flag_url = "https://" + CN
 req = requests.get(flag_url, headers={'User-Agent': user_agent})
 flag = req.content.decode('utf-8')
 print("Flag:", flag)
-\end{verbatim}
+\end{lstlisting}
+
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{E - Script de résolution du challenge \textit{Export grade}}
+\label{annexe:script-exportgrade}
+
+\begin{lstlisting}
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+import hashlib
+import json
+def is_pkcs7_padded(message):
+    padding = message[-message[-1]:]
+    return all(padding[i] == len(padding) for i in range(0, len(padding)))
 
 
-\section{Script de résolution du challenge Manyprime}
-\label{annexe:script-Manyprime}
+def decrypt_flag(shared_secret: int, iv: str, ciphertext: str):
+    # Derive AES key from shared secret
+    sha1 = hashlib.sha1()
+    sha1.update(str(shared_secret).encode('ascii'))
+    key = sha1.digest()[:16]
+    # Decrypt flag
+    ciphertext = bytes.fromhex(ciphertext)
+    iv = bytes.fromhex(iv)
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    plaintext = cipher.decrypt(ciphertext)
 
-Voici le code utilisé pour le challenge "Manyprime".
+    if is_pkcs7_padded(plaintext):
+        return unpad(plaintext, 16).decode('utf-8')
+    else:
+        return plaintext.decode('utf-8', errors='replace')
 
-\begin{verbatim}
-#!/usr/bin/env python3
+p_hex = "0xde26ab651b92a129"
+g_hex = "0x2"
+A_hex = "0x674f9bbabc48cd8d"
+B_hex = "0xb0474b841afb4d6e"
+iv = "42ec73835ae43797fa73803c035158fb"
+encrypted_flag = "a398f814b44b69a83d2c9a0d8c35eaf65bc39b405af361a1f6ebeaec967c5809"
 
+p = int(p_hex, 16)
+g = int(g_hex, 16)
+public_A = int(A_hex, 16)
+public_B = int(B_hex, 16)
+
+from sympy.ntheory.residue_ntheory import *
+a = discrete_log(p, public_A, g) 
+print(a)
+shared_secret = pow(public_B, a, p)
+print(decrypt_flag(shared_secret, iv, encrypted_flag))
+\end{lstlisting}
+
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{F - Script de résolution du challenge \textit{ManyPrime}}
+\label{annexe:script-manyprime}
+
+\begin{lstlisting}
 from Crypto.Util.number import inverse, long_to_bytes
 import primefac
 import math
 
-n = ...
+n = 580642391898843192929563856870897799...
 e = 65537
-ct = ...
+ct = 32072149053462443414999372352732297...
 
 factors = []
 current = n
-
 while current > 1:
     if primefac.isprime(current):
         factors.append(current)
@@ -110,24 +278,20 @@ d = inverse(e, phi)
 pt = pow(ct, d, n)
 decrypted = long_to_bytes(pt)
 print(decrypted)
-\end{verbatim}
+\end{lstlisting}
 
-\section{Script de résolution du challenge Vote for Pedro}
-\label{annexe:script-vote-for-pedro}
+\newpage % Force le début de la nouvelle annexe sur une nouvelle page
+\section*{G - Script de résolution du challenge \textit{Vote for Pedro}}
+\label{annexe:script-vote}
 
-
-\begin{verbatim}
-#!/usr/bin/env python3
-
+\begin{lstlisting}
 from Crypto.Util.number import bytes_to_long, long_to_bytes
 import socket
 import json
 
 host = 'socket.cryptohack.org'
 port = 13375
-
-N = ...
-
+N = 22266616657574989868109324252160663470925207690694094953...
 e = 3
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -158,4 +322,5 @@ payload = {
 sock.send(json.dumps(payload).encode())
 flag = sock.recv(1024)
 print(flag)
-\end{verbatim}
+
+\end{lstlisting}

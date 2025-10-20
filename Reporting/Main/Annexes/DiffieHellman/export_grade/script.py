@@ -25,17 +25,6 @@ def decrypt_flag(shared_secret: int, iv: str, ciphertext: str):
     else:
         return plaintext.decode('utf-8', errors='replace')
 
-    
-"""
-nc socket.cryptohack.org 13379
-Intercepted from Alice: {"supported": ["DH1536", "DH1024", "DH512", "DH256", "DH128", "DH64"]}
-Send to Bob: {"supported":["DH64"]}
-Intercepted from Bob: {"chosen": "DH64"}
-Send to Alice: {"chosen": "DH64"}
-Intercepted from Alice: {"p": "0xde26ab651b92a129", "g": "0x2", "A": "0x674f9bbabc48cd8d"}
-Intercepted from Bob: {"B": "0xb0474b841afb4d6e"}
-Intercepted from Alice: {"iv": "42ec73835ae43797fa73803c035158fb", "encrypted_flag": "a398f814b44b69a83d2c9a0d8c35eaf65bc39b405af361a1f6ebeaec967c5809"}
-"""
 p_hex = "0xde26ab651b92a129"
 g_hex = "0x2"
 A_hex = "0x674f9bbabc48cd8d"

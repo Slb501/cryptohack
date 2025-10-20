@@ -8,7 +8,7 @@
 
 % --- INFORMATIONS DU DOCUMENT ---
 % Ces informations seront utilisées dans la page de garde ci-dessous
-\title{Rapport de Projet : Cryptohack}
+\title{Rapport de Projet : CryptoHack}
 \author{Victor Bailleul \and Sébastien Leglise}
 \date{\today}
 
@@ -19,23 +19,23 @@
 \begin{titlepage}
     \centering % Centre tout le contenu de la page de garde
 
-    % Espace réservé pour le logo
+    % Espace pour le logo principal (CryptoHack)
     \vspace*{1cm} % Espace en haut de la page
     \begin{figure}[h!]
         \centering
-        % --- AJOUTEZ VOTRE LOGO ICI ---
-        % Décommentez la ligne suivante et remplacez "logo.png"
-        % \includegraphics[width=0.4\textwidth]{logo.png}
-        
-        % Si vous n'avez pas de logo, vous pouvez laisser cet espace vide
-        % ou ajouter une ligne pour indiquer son emplacement.
-        \fbox{Emplacement du logo} % Affiche une boîte pour visualiser l'espace
-    \end{figure}
-    \vspace{2cm} % Espace vertical après le logo
+        % --- AJOUTEZ LE LOGO CRYPTOHACK ICI ---
+        % Décommentez la ligne suivante et remplacez "logo_cryptohack.png"
+        \includegraphics[width=0.5\textwidth]{Images/Others/logo_cryptohack.png}
+            \end{figure}
+    \vfill % Pousse le titre vers le centre de la page
 
     % Affiche le titre en gros caractères
     {\Huge\bfseries \thetitle\par}
-    \vspace{1.5cm} % Espace vertical
+    \vspace{1cm} % Espace vertical
+
+    % --- AJOUT DU TITRE DE LA MATIÈRE ---
+    {\Large\itshape UE Communication Scientifique\par}
+    \vspace{1cm}
 
     % Affiche les auteurs
     {\Large \theauthor\par}
@@ -44,19 +44,32 @@
     % Affiche la date
     {\large \today\par}
 
-    \vfill % Pousse le contenu restant vers le bas de la page
+    \vspace{2cm}
+    % Nom de l'université et de l'école
+    {\large Université de Caen Normandie \\ Ecole Nationale Supérieure d'Ingénieurs de Caen \\ Année 2023-2024\par}
+    % Espace réservé pour les logos de l'université et de l'école
+    \begin{figure}[h!]
+        \centering
+        % Minipage pour le premier logo (à gauche)
+        \begin{minipage}{0.35\textwidth}
+            \centering
+             \includegraphics[width=\linewidth]{Images/Others/logo_unicaen.png}
+        \end{minipage}
+        \hfill % Ajoute un espace horizontal flexible entre les logos
+        % Minipage pour le second logo (à droite)
+        \begin{minipage}{0.35\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{Images/Others/logo_ensicaen.png}
+        \end{minipage}
+    \end{figure}
+    
 
-    % Vous pouvez ajouter le nom de votre université ou institution ici
-    {\large Université Fictive de LaTeX\\ Année 2023-2024\par}
-    \vspace{1cm} % Espace en bas de la page
 
 \end{titlepage}
 % --- FIN DE LA PAGE DE GARDE ---
 
 
 % --- PARTIE PRÉLIMINAIRE ---
-    \pagenumbering{roman} % La numérotation commence ici, sur la page 'i'
-    \setcounter{page}{1}  % On force le compteur à 1 (la page sera 'i')
 
     \tableofcontents % La table des matières sera 'i', 'ii', etc.
 
@@ -73,6 +86,8 @@
     \input{Conclusion/conclusion}
 
 % --- ANNEXES ---
+    \clearpage
+    \pagenumbering{roman}
     \appendix
     \newpage
     \section*{Annexes}

@@ -17,12 +17,49 @@
 \usepackage{seqsplit}
 
 \usepackage{titling}
+% --- Dans preambule.tex ---
 
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Définition d'un style personnalisé pour les blocs de code/clés
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{black!5},   % Fond gris très clair
+    commentstyle=\color{green!40!black},
+    keywordstyle=\color{blue},
+    stringstyle=\color{red!60!black},
+    basicstyle=\ttfamily\small,        % Police monospace de petite taille
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single,                      % Cadre simple autour du bloc
+    rulecolor=\color{black!20},      % Couleur du cadre
+    numbers=left,                      % Numéros de ligne à gauche
+    numberstyle=\tiny\color{gray},     % Style des numéros de ligne
+}
+
+\usepackage{booktabs} % Pour des tableaux plus esthétiques
+% Applique ce style à tous les listings par défaut
+\lstset{style=mystyle}
 % Pour avoir des liens cliquables dans le PDF (table des matières, références)
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
+    colorlinks=false,
+    linkcolor=grey,
     filecolor=magenta,
     urlcolor=cyan,
 }
+
+% --- Dans preambule.tex ---
+\usepackage{tocloft}
+
+% Réduit l'espace avant chaque entrée de type "section"
+\setlength{\cftbeforesecskip}{0.5ex}
+
+% Réduit l'espace avant chaque entrée de type "subsection"
+\setlength{\cftbeforesubsecskip}{0.3ex}
