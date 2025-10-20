@@ -63,3 +63,22 @@
 
 % Réduit l'espace avant chaque entrée de type "subsection"
 \setlength{\cftbeforesubsecskip}{0.3ex}
+
+\usepackage{fancyhdr} % Charge le paquet pour les en-têtes
+
+% Active le style de page "fancy" pour tout le document
+\pagestyle{fancy}
+
+% --- Configuration de l'en-tête ---
+\fancyhf{} % Efface les configurations précédentes de l'en-tête et du pied de page
+\renewcommand{\headrulewidth}{0.4pt} % Ajoute une ligne de séparation sous l'en-tête
+
+% Contenu de l'en-tête
+\lhead{Rapport de Projet : CryptoHack} % Texte à gauche de l'en-tête
+\rhead{Page \thepage}                 % Numéro de page à droite
+
+% --- Configuration du pied de page (optionnel) ---
+% Laissez-le vide si vous n'en voulez pas
+\lfoot{V. Bailleul \& S. Leglise}      % Texte à gauche du pied de page
+\cfoot{}                              % Pas de texte au centre
+\rfoot{\today}                        % La date à droite

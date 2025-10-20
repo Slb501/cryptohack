@@ -67,12 +67,31 @@
 
 \end{titlepage}
 % --- FIN DE LA PAGE DE GARDE ---
-
+% Page blanche après la page de garde
+\clearpage
+\thispagestyle{empty}
+\null
+\clearpage
 
 % --- PARTIE PRÉLIMINAIRE ---
+    % On s'assure d'être sur une nouvelle page
+    \clearpage
 
-    \tableofcontents % La table des matières sera 'i', 'ii', etc.
+    % On insère la table des matières
+    \tableofcontents
+    
+    % On force CETTE page (la première du sommaire) à ne pas avoir de numéro
+    \thispagestyle{empty} 
 
+    % Si le sommaire fait plus d'une page, on s'assure que les suivantes
+    % n'ont pas de numéro non plus.
+    \pagestyle{empty}
+
+% --- CORPS DU DOCUMENT ---
+    \clearpage 
+    \pagestyle{fancy}
+    % La commande suivante réinitialise le style de page et la numérotation
+    \pagenumbering{arabic}
 % --- CORPS DU DOCUMENT ---
     \clearpage
     \pagenumbering{arabic} % On passe en chiffres arabes ET on remet le compteur à 1
