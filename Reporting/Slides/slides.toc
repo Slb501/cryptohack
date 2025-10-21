@@ -1,5 +1,5 @@
 \babel@toc {french}{}\relax 
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Challenge Diffie-Hellman}{6}{0}{2}
-\beamer@sectionintoc {3}{Challenge 2 : Vote for Pedro}{13}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{16}{0}{4}
+\beamer@sectionintoc {2}{Challenge Diffie-Hellman}{7}{0}{2}
+\beamer@sectionintoc {3}{Challenge RSA}{15}{0}{3}
+\beamer@sectionintoc {4}{Bilan}{19}{0}{4}

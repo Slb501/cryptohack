@@ -50,6 +50,26 @@
 \author{Victor Bailleul \and Sébastien Leglise}
 \institute{Université de Caen Normandie / ENSICAEN}
 \date{Année 2025-2026}
+% --- PERSONNALISATION DU PIED DE PAGE ---
+\setbeamertemplate{footline}{%
+  \leavevmode%
+  \hbox{%
+    % --- Partie GAUCHE ---
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\insertshortauthor
+    \end{beamercolorbox}%
+    % --- Partie CENTRALE ---
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    % --- Partie DROITE ---
+    \begin{beamercolorbox}[wd=.333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}
+      \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
 
 % --- DÉBUT DU DOCUMENT ---
 \begin{document}
@@ -67,15 +87,16 @@
         % Utilisation de l'environnement 'columns' pour aligner les trois logos côte à côte.
         % [T] aligne les colonnes par le haut, 'totalwidth' définit leur conteneur.
         \begin{columns}[T, totalwidth=\textwidth]
-            % Colonne 1: Logo Unicaen
-            \begin{column}{0.33\textwidth}
-                \centering % Centre l'image dans la colonne
-                \includegraphics[height=2.cm]{../Main/Images/Others/logo_unicaen.png}
-            \end{column}
+
             % Colonne 2: Logo CryptoHack
             \begin{column}{0.33\textwidth}
                 \centering
                 \includegraphics[height=2cm]{../Main/Images/Others/logo_cryptohack.png}
+            \end{column}
+                    % Colonne 1: Logo Unicaen
+            \begin{column}{0.33\textwidth}
+                \centering % Centre l'image dans la colonne
+                \includegraphics[height=2.cm]{../Main/Images/Others/logo_unicaen.png}
             \end{column}
             % Colonne 3: Logo Ensicaen
             \begin{column}{0.33\textwidth}
