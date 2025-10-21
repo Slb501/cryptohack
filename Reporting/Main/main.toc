@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.1}Organisation de la charge de travail}{2}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Gestion d'un dépôt GitHub}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Méthodologie GitHub}{3}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Challenges : General}{3}{section.3}%
+\contentsline {section}{\numberline {3}Challenges : \textit {General}}{3}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Encodage (\textit {Encoding})}{3}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Objectifs}{3}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}Méthode}{4}{subsubsection.3.1.2}%

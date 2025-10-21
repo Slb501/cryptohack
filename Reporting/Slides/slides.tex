@@ -4,45 +4,75 @@
 
 % --- PRÉAMBULE ET PACKAGES ---
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % Ajout pour une meilleure gestion des polices et accents
 \usepackage[french]{babel}
 \usepackage{graphicx} % Pour inclure des images et le logo
 
 % --- THÈME ET APPARENCE ---
-\usetheme{Berlin}             % Thème populaire avec navigation sur le côté
-\usecolortheme{whale}           % Palette de couleurs sobre (bleu/blanc)
+\usetheme{Madrid}             % Thème populaire avec navigation sur le côté
+\usecolortheme{crane}           % Palette de couleurs sobre (bleu/blanc)
 \setbeamertemplate{navigation symbols}{} % Cache les petits boutons de navigation
 
 % --- INFORMATIONS DE LA PRÉSENTATION ---
-\title{Rapport de Projet : Cryptohack}
-\author{Victor Bailleul \and Seb}
-\institute{Université Fictive de LaTeX} % Vous pouvez ajouter votre institution ici
-\date{\today}
+% Informations mises à jour pour la cohérence avec les demandes précédentes
+\title{Rapport de Projet : CryptoHack}
+\author{Victor Bailleul \and Sébastien Leglise}
+\institute{Université de Caen Normandie / ENSICAEN}
+\date{Année 2025-2026}
 
 % --- DÉBUT DU DOCUMENT ---
 \begin{document}
 
     % --- SLIDE DE TITRE ---
-    % Cette frame spéciale est créée à partir des informations ci-dessus
-    \begin{frame}
-        % On insère le logo en haut de la page de titre
-        \begin{figure}
-            % --- AJOUTEZ VOTRE LOGO ICI ---
-            % \includegraphics[height=1.5cm]{logo.png}
-        \end{figure}
+    % La frame a été modifiée pour inclure les trois logos en pied de page.
+    \begin{frame}[plain] % Ajout de l'option [plain] pour un look plus épuré sur la page de titre
+        % La commande \titlepage génère la partie principale de la diapositive de titre.
         \titlepage
+
+        % \vfill pousse tout le contenu qui suit vers le bas de la diapositive.
+        \vfill
+
+        % --- LOGOS EN PIED DE PAGE ---
+        % Utilisation de l'environnement 'columns' pour aligner les trois logos côte à côte.
+        % [T] aligne les colonnes par le haut, 'totalwidth' définit leur conteneur.
+        \begin{columns}[T, totalwidth=\textwidth]
+            % Colonne 1: Logo Unicaen
+            \begin{column}{0.33\textwidth}
+                \centering % Centre l'image dans la colonne
+                \includegraphics[height=2.cm]{../Main/Images/Others/logo_unicaen.png}
+            \end{column}
+            % Colonne 2: Logo CryptoHack
+            \begin{column}{0.33\textwidth}
+                \centering
+                \includegraphics[height=2cm]{../Main/Images/Others/logo_cryptohack.png}
+            \end{column}
+            % Colonne 3: Logo Ensicaen
+            \begin{column}{0.33\textwidth}
+                \centering
+                \includegraphics[height=2cm]{../Main/Images/Others/logo_ensicaen.png}
+            \end{column}
+        \end{columns}
+
+        % Ajoute un petit espace vertical pour que les logos ne soient pas collés au bord.
+        \vspace{0.2cm}
     \end{frame}
 
     % --- TABLE DES MATIÈRES ---
-    % Affiche le plan de la présentation, mis à jour automatiquement
+    % Affiche le plan de la présentation, qui est généré automatiquement.
     \begin{frame}{Plan de la présentation}
         \tableofcontents
     \end{frame}
 
     % --- INCLUSION DES PARTIES ---
-    % Chaque partie est dans son propre fichier pour une meilleure organisation
+    % Chaque partie est dans son propre fichier pour une meilleure organisation.
+    % Assurez-vous que ces fichiers existent dans les répertoires correspondants.
     \input{Intro/introduction.tex}
     \input{Chall1/challenge1.tex}
     \input{Chall2/challenge2.tex}
     \input{Conclusion/conclusion.tex}
 
+    % --- CORRECTION D'ERREUR ---
+    % L'erreur de compilation indiquait qu'un \begin{frame} dans un des fichiers inclus
+    % n'avait pas de \end{frame} correspondant. On l'ajoute ici pour clore la dernière diapositive.
 \end{document}
+

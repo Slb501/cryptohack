@@ -721,6 +721,7 @@ INPUT main.toc
 INPUT main.toc
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 OUTPUT main.toc
 INPUT ./Intro/introduction.tex
 INPUT ./Intro/introduction.tex
@@ -745,6 +746,7 @@ INPUT General/general.tex
 INPUT ./General/general.tex
 INPUT ./General/general.tex
 INPUT General/general.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT ./Images/Encode/encode_chall_result.png
 INPUT ./Images/Encode/encode_chall_result.png
@@ -802,7 +804,6 @@ INPUT ./Annexes/annexes.tex
 INPUT Annexes/annexes.tex
 INPUT ./Annexes/annexes.tex
 INPUT Annexes/annexes.tex
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT main.aux
 INPUT ./main.out

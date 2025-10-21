@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  20 OCT 2025 21:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  21 OCT 2025 15:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -526,12 +526,9 @@ l.74 \clearpage
  [2
 
 
+] [3
+
 ] (./Intro/introduction.tex
-Overfull \hbox (27.00853pt too wide) in paragraph at lines 4--11
-\OT1/cmr/m/it/12 Cryp-to-Hack \OT1/cmr/m/n/12 ([]www.cryptohack.org[]). L'ob-jec-tif est de do-cu-men-ter les ap-pro-chesm^^Sethodologiques
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 38--41
 
  []
@@ -548,6 +545,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
                    \relax 
 l.54 
       [1
+
 
 
 ]) (./Gestion/gestion_projet.tex
@@ -570,8 +568,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[3]
-<Images/Encode/encode_chall_result.png, id=266, 738.76pt x 318.18875pt>
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.37 
+      [3]
+<Images/Encode/encode_chall_result.png, id=270, 738.76pt x 318.18875pt>
 File: Images/Encode/encode_chall_result.png Graphic file (type png)
 <use Images/Encode/encode_chall_result.png>
 Package pdftex.def Info: Images/Encode/encode_chall_result.png  used on input line 71.
@@ -591,17 +593,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4 <./Images/Encode/encode_chall_result.png>]
-<Images/Lemur/flag.png, id=283, 584.1825pt x 328.22626pt>
+<Images/Lemur/flag.png, id=286, 584.1825pt x 328.22626pt>
 File: Images/Lemur/flag.png Graphic file (type png)
 <use Images/Lemur/flag.png>
 Package pdftex.def Info: Images/Lemur/flag.png  used on input line 118.
 (pdftex.def)             Requested size: 218.51521pt x 122.77402pt.
-<Images/Lemur/lemur.png, id=284, 584.1825pt x 328.22626pt>
+<Images/Lemur/lemur.png, id=287, 584.1825pt x 328.22626pt>
 File: Images/Lemur/lemur.png Graphic file (type png)
 <use Images/Lemur/lemur.png>
 Package pdftex.def Info: Images/Lemur/lemur.png  used on input line 124.
 (pdftex.def)             Requested size: 218.51521pt x 122.77402pt.
-<Images/Lemur/xored_result.png, id=285, 584.1825pt x 328.22626pt>
+<Images/Lemur/xored_result.png, id=288, 584.1825pt x 328.22626pt>
 File: Images/Lemur/xored_result.png Graphic file (type png)
 <use Images/Lemur/xored_result.png>
 Package pdftex.def Info: Images/Lemur/xored_result.png  used on input line 159.
@@ -648,7 +650,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [8]
-<Images/DiffieHellman/capture_mitm.png, id=326, 958.58125pt x 155.58125pt>
+<Images/DiffieHellman/capture_mitm.png, id=329, 958.58125pt x 155.58125pt>
 File: Images/DiffieHellman/capture_mitm.png Graphic file (type png)
 <use Images/DiffieHellman/capture_mitm.png>
 Package pdftex.def Info: Images/DiffieHellman/capture_mitm.png  used on input line 70.
@@ -787,18 +789,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 15FF9DD0B3C51123404B28A136B5C9CE;6555.
  ) 
 Here is how much of TeX's memory you used:
- 14491 strings out of 478287
- 224379 string characters out of 5849288
- 896473 words of memory out of 5000000
- 32091 multiletter control sequences out of 15000+600000
- 477143 words of font info for 55 fonts, out of 8000000 for 9000
+ 14492 strings out of 478287
+ 224395 string characters out of 5849288
+ 896502 words of memory out of 5000000
+ 32092 multiletter control sequences out of 15000+600000
+ 477502 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  65i,12n,66p,822b,1862s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (24 pages, 1654979 bytes).
+Output written on main.pdf (25 pages, 1655450 bytes).
 PDF statistics:
- 824 PDF objects out of 1000 (max. 8388607)
- 747 compressed objects within 8 object streams
+ 828 PDF objects out of 1000 (max. 8388607)
+ 750 compressed objects within 8 object streams
  375 named destinations out of 1000 (max. 500000)
  393 words of extra memory for PDF output out of 10000 (max. 10000000)
 
