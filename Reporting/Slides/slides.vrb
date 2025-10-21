@@ -1,0 +1,6 @@
+\frametitle{Diffie-Hellman : \textit{Man-in-the-middle | Export grade}}
+    \framesubtitle{Méthode de résolution}
+    \begin{center}
+        \includegraphics[width=1\textwidth,trim=0 2.2cm 0 0,clip]{screen_export_grade.png}
+        \vspace{0.5em}
+    \end{center}

@@ -5,7 +5,11 @@
 \begin{frame}{Objectifs du challenge}
 \centering
 {\LARGE Forger une signature RSA valide}\\
-\vspace{1cm}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{scriptCh2.png}
+\end{figure}
+\vspace{0.1cm}
 \begin{itemize}
     \item Voter pour Pedro sans clé privée
     \item Exploiter l'exposant faible $e = 3$
@@ -27,15 +31,19 @@ s^3 &\equiv \text{Message} \pmod{N}
 \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Résultat et Flag}
 \centering
 {\LARGE Signature forgée validée !}
-\vspace{1cm}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{scriptInitCh2.png}
+\end{figure}
+\vspace{0.1cm}
 \begin{block}{Flag obtenu}
 \texttt{crypto\{y0ur\_v0t3\_i5\_my\_v0t3\}}
 \end{block}
 \begin{itemize}
     \item Vote accepté par le serveur
-    \item Attaque réussie en quelques secondes
 \end{itemize}
 \end{frame}
