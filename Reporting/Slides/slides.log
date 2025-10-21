@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  21 OCT 2025 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  21 OCT 2025 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -670,6 +670,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 55.
 LaTeX Info: Redefining \pageref on input line 55.
 LaTeX Info: Redefining \nameref on input line 55.
+ (./slides.out) (./slides.out)
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
@@ -747,17 +748,17 @@ Overfull \hbox (114.02048pt too wide) in paragraph at lines 55--55
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
-<../Main/Images/Others/logo_unicaen.png, id=26, 259.2084pt x 146.2263pt>
+<../Main/Images/Others/logo_unicaen.png, id=42, 259.2084pt x 146.2263pt>
 File: ../Main/Images/Others/logo_unicaen.png Graphic file (type png)
 <use ../Main/Images/Others/logo_unicaen.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_unicaen.png  used on input line 89.
 (pdftex.def)             Requested size: 100.87332pt x 56.9055pt.
-<../Main/Images/Others/logo_cryptohack.png, id=28, 945.5325pt x 915.42pt>
+<../Main/Images/Others/logo_cryptohack.png, id=44, 945.5325pt x 915.42pt>
 File: ../Main/Images/Others/logo_cryptohack.png Graphic file (type png)
 <use ../Main/Images/Others/logo_cryptohack.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_cryptohack.png  used on input line 89.
 (pdftex.def)             Requested size: 58.7638pt x 56.9055pt.
-<../Main/Images/Others/logo_ensicaen.png, id=29, 260.975pt x 130.4875pt>
+<../Main/Images/Others/logo_ensicaen.png, id=45, 260.975pt x 130.4875pt>
 File: ../Main/Images/Others/logo_ensicaen.png Graphic file (type png)
 <use ../Main/Images/Others/logo_ensicaen.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_ensicaen.png  used on input line 89.
@@ -769,9 +770,7 @@ Overfull \hbox (0.80565pt too wide) in paragraph at lines 89--89
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Main/Images/Others/logo_unicaen.png> <../Main/Images/Others/logo_cryptohack.png> <../Main/Images/Others/logo_ensicaen.png>]
-No file slides.toc.
-
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Main/Images/Others/logo_unicaen.png> <../Main/Images/Others/logo_cryptohack.png> <../Main/Images/Others/logo_ensicaen.png>] (./slides.toc)
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
@@ -786,7 +785,7 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [3
 
 ]
-<Images//gantt.png, id=95, 1445.4pt x 578.16pt>
+<Images//gantt.png, id=119, 1445.4pt x 578.16pt>
 File: Images//gantt.png Graphic file (type png)
 <use Images//gantt.png>
 Package pdftex.def Info: Images//gantt.png  used on input line 38.
@@ -799,52 +798,18 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [4
 
  <./Images//gantt.png>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 70.
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 67.
  (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
 )
-./Intro/introduction.tex:70: Undefined control sequence.
-\beamer@doifinframe ...gin {tabular}{ll} \toprule 
-                                                  \textbf {} & \textit {Cat√...
-l.70 \end{frame}
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Intro/introduction.tex:70: Undefined control sequence.
-<recently read> \midrule 
-                         
-l.70 \end{frame}
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./Intro/introduction.tex:70: Undefined control sequence.
-<recently read> \bottomrule 
-                            
-l.70 \end{frame}
-                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
@@ -852,7 +817,7 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [5
 
 ]) (./Chall1/challenge1.tex
-<Images//diffie_key_exchange.png, id=136, 514.0806pt x 489.027pt>
+<Images//diffie_key_exchange.png, id=160, 514.0806pt x 489.027pt>
 File: Images//diffie_key_exchange.png Graphic file (type png)
 <use Images//diffie_key_exchange.png>
 Package pdftex.def Info: Images//diffie_key_exchange.png  used on input line 12.
@@ -869,7 +834,7 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [6
 
  <./Images//diffie_key_exchange.png>]
-<Images//screen_export_grade.png, id=146, 864.22874pt x 172.645pt>
+<Images//screen_export_grade.png, id=168, 864.22874pt x 172.645pt>
 File: Images//screen_export_grade.png Graphic file (type png)
 <use Images//screen_export_grade.png>
 Package pdftex.def Info: Images//screen_export_grade.png  used on input line 21.
@@ -941,7 +906,7 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [12
 
 ]) (./Chall2/challenge2.tex
-<Images//scriptCh2.png, id=220, 865.2325pt x 713.66624pt>
+<Images//scriptCh2.png, id=242, 865.2325pt x 713.66624pt>
 File: Images//scriptCh2.png Graphic file (type png)
 <use Images//scriptCh2.png>
 Package pdftex.def Info: Images//scriptCh2.png  used on input line 18.
@@ -961,7 +926,7 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [14
 
 ]
-<Images//scriptInitCh2.png, id=241, 860.21375pt x 644.4075pt>
+<Images//scriptInitCh2.png, id=261, 860.21375pt x 644.4075pt>
 File: Images//scriptInitCh2.png Graphic file (type png)
 <use Images//scriptInitCh2.png>
 Package pdftex.def Info: Images//scriptInitCh2.png  used on input line 49.
@@ -998,28 +963,22 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 \openout8 = `slides.snm'.
 
  (./slides.aux)
-
-Package rerunfilecheck Warning: File `slides.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `slides.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  863272AAA45657B3E4DE3A692576A5D9;560.
+Package rerunfilecheck Info: File `slides.out' has not changed.
+(rerunfilecheck)             Checksum: 863272AAA45657B3E4DE3A692576A5D9;560.
  ) 
 Here is how much of TeX's memory you used:
- 25357 strings out of 478287
- 486322 string characters out of 5849288
- 744857 words of memory out of 5000000
- 42981 multiletter control sequences out of 15000+600000
+ 25398 strings out of 478287
+ 487382 string characters out of 5849288
+ 744939 words of memory out of 5000000
+ 43016 multiletter control sequences out of 15000+600000
  494656 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,17n,122p,467b,835s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,17n,122p,467b,836s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on slides.pdf (17 pages, 966247 bytes).
+Output written on slides.pdf (17 pages, 968036 bytes).
 PDF statistics:
- 380 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
+ 399 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
  39 named destinations out of 1000 (max. 500000)
- 425 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 463 words of extra memory for PDF output out of 10000 (max. 10000000)
 
