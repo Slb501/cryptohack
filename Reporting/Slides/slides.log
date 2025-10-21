@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  21 OCT 2025 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.10.18)  21 OCT 2025 17:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -556,10 +556,32 @@ Package babel Info: Making ? an active character on input line 433.
 )) (/usr/share/texlive/texmf-dist/tex/latex/carlisle/scalefnt.sty)
 Package french.ldf Info: No list customisation for the beamer class,
 (french.ldf)             reported on input line 9.
- (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemecrane.sty) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count338
+\lst@gtempboxa=\box75
+\lst@token=\toks48
+\lst@length=\count339
+\lst@currlwidth=\dimen293
+\lst@column=\count340
+\lst@pos=\count341
+\lst@lostspace=\dimen294
+\lst@width=\dimen295
+\lst@newlines=\count342
+\lst@lineno=\count343
+\lst@maxwidth=\dimen296
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count344
+\lst@skipnumbers=\count345
+\lst@framebox=\box76
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerthemeMadrid.sty (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemewhale.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeorchid.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerinnerthemerounded.sty) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamerouterthemeinfolines.sty)) (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamercolorthemeseahorse.sty) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count338
-\l__pdf_internal_box=\box75
+\l__color_backend_stack_int=\count346
+\l__pdf_internal_box=\box77
 ) (./slides.aux)
 \openout1 = `slides.aux'.
 
@@ -618,17 +640,17 @@ LaTeX Font Info:    ... okay on input line 24.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count339
-\scratchdimen=\dimen293
-\scratchbox=\box76
-\nofMPsegments=\count340
-\nofMParguments=\count341
-\everyMPshowfont=\toks48
-\MPscratchCnt=\count342
-\MPscratchDim=\dimen294
-\MPnumerator=\count343
-\makeMPintoPDFobject=\count344
-\everyMPtoPDFconversion=\toks49
+\scratchcounter=\count347
+\scratchdimen=\dimen297
+\scratchbox=\box78
+\nofMPsegments=\count348
+\nofMParguments=\count349
+\everyMPshowfont=\toks49
+\MPscratchCnt=\count350
+\MPscratchDim=\dimen298
+\MPnumerator=\count351
+\makeMPintoPDFobject=\count352
+\everyMPtoPDFconversion=\toks50
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -643,12 +665,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count345
+\c@section@level=\count353
 )
 LaTeX Info: Redefining \ref on input line 24.
 LaTeX Info: Redefining \pageref on input line 24.
 LaTeX Info: Redefining \nameref on input line 24.
- (./slides.out) (./slides.out)
 \@outlinefile=\write5
 \openout5 = `slides.out'.
 
@@ -720,22 +741,23 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \degres on input line 24.
 LaTeX Info: Redefining \up on input line 24.
+\c@lstlisting=\count354
  (./slides.nav)
 Overfull \hbox (114.02048pt too wide) in paragraph at lines 24--24
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
-<../Main/Images/Others/logo_unicaen.png, id=42, 259.2084pt x 146.2263pt>
+<../Main/Images/Others/logo_unicaen.png, id=26, 259.2084pt x 146.2263pt>
 File: ../Main/Images/Others/logo_unicaen.png Graphic file (type png)
 <use ../Main/Images/Others/logo_unicaen.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_unicaen.png  used on input line 58.
 (pdftex.def)             Requested size: 100.87332pt x 56.9055pt.
-<../Main/Images/Others/logo_cryptohack.png, id=44, 945.5325pt x 915.42pt>
+<../Main/Images/Others/logo_cryptohack.png, id=28, 945.5325pt x 915.42pt>
 File: ../Main/Images/Others/logo_cryptohack.png Graphic file (type png)
 <use ../Main/Images/Others/logo_cryptohack.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_cryptohack.png  used on input line 58.
 (pdftex.def)             Requested size: 58.7638pt x 56.9055pt.
-<../Main/Images/Others/logo_ensicaen.png, id=45, 260.975pt x 130.4875pt>
+<../Main/Images/Others/logo_ensicaen.png, id=29, 260.975pt x 130.4875pt>
 File: ../Main/Images/Others/logo_ensicaen.png Graphic file (type png)
 <use ../Main/Images/Others/logo_ensicaen.png>
 Package pdftex.def Info: ../Main/Images/Others/logo_ensicaen.png  used on input line 58.
@@ -747,7 +769,9 @@ Overfull \hbox (0.80565pt too wide) in paragraph at lines 58--58
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Main/Images/Others/logo_unicaen.png> <../Main/Images/Others/logo_cryptohack.png> <../Main/Images/Others/logo_ensicaen.png>] (./slides.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../Main/Images/Others/logo_unicaen.png> <../Main/Images/Others/logo_cryptohack.png> <../Main/Images/Others/logo_ensicaen.png>]
+No file slides.toc.
+
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
@@ -755,50 +779,123 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [2
 
 ] (./Intro/introduction.tex
+
+./Intro/introduction.tex:30: LaTeX Error: \begin{alertblock} on input line 30 ended by \end{block}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 \end{frame}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [3
 
-]) (./Chall1/challenge1.tex
+]
+<Images/gantt_diagram.png, id=95, 1445.4pt x 578.16pt>
+File: Images/gantt_diagram.png Graphic file (type png)
+<use Images/gantt_diagram.png>
+Package pdftex.def Info: Images/gantt_diagram.png  used on input line 38.
+(pdftex.def)             Requested size: 342.43532pt x 136.97037pt.
+
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [4
 
-]
+ <./Images/gantt_diagram.png>]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 70.
+ (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
+./Intro/introduction.tex:70: Undefined control sequence.
+\beamer@doifinframe ...gin {tabular}{ll} \toprule 
+                                                  \textbf {} & \textit {Cat√...
+l.70 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Intro/introduction.tex:70: Undefined control sequence.
+<recently read> \midrule 
+                         
+l.70 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./Intro/introduction.tex:70: Undefined control sequence.
+<recently read> \bottomrule 
+                            
+l.70 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./Intro/introduction.tex:70: LaTeX Error: \begin{alertblock} on input line 70 ended by \end{block}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 \end{frame}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [5
 
-]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 25.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
+]) (./Chall1/challenge1.tex
+<Images/diffie_key_exchange.png, id=136, 514.0806pt x 489.027pt>
+File: Images/diffie_key_exchange.png Graphic file (type png)
+<use Images/diffie_key_exchange.png>
+Package pdftex.def Info: Images/diffie_key_exchange.png  used on input line 14.
+(pdftex.def)             Requested size: 222.58086pt x 211.73257pt.
+
+Overfull \vbox (23.95262pt too high) detected at line 14
+ []
+
+
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [6
 
-]) (./Chall2/challenge2.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 14.
- (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
+ <./Images/diffie_key_exchange.png>]
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
@@ -812,14 +909,14 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 
 [8
 
-]
+]) (./Chall2/challenge2.tex
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [9
 
-]) (./Conclusion/conclusion.tex
+]
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
@@ -827,11 +924,29 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 [10
 
 ]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 41.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
 Overfull \hbox (114.02048pt too wide) has occurred while \output is active
  [][]  \T1/cmss/m/n/6 ([])  
  []
 
 [11
+
+]) (./Conclusion/conclusion.tex
+Overfull \hbox (114.02048pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/6 ([])  
+ []
+
+[12
+
+]
+Overfull \hbox (114.02048pt too wide) has occurred while \output is active
+ [][]  \T1/cmss/m/n/6 ([])  
+ []
+
+[13
 
 ])
 \tf@nav=\write6
@@ -844,22 +959,28 @@ Overfull \hbox (114.02048pt too wide) has occurred while \output is active
 \openout8 = `slides.snm'.
 
  (./slides.aux)
-Package rerunfilecheck Info: File `slides.out' has not changed.
-(rerunfilecheck)             Checksum: 76EE3AC053655C718E53A29BBA1B2964;612.
+
+Package rerunfilecheck Warning: File `slides.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `slides.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  863272AAA45657B3E4DE3A692576A5D9;560.
  ) 
 Here is how much of TeX's memory you used:
- 23829 strings out of 478287
- 462120 string characters out of 5849288
- 721316 words of memory out of 5000000
- 41489 multiletter control sequences out of 15000+600000
- 482645 words of font info for 60 fonts, out of 8000000 for 9000
+ 25296 strings out of 478287
+ 484832 string characters out of 5849288
+ 744257 words of memory out of 5000000
+ 42932 multiletter control sequences out of 15000+600000
+ 494343 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,17n,122p,467b,783s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on slides.pdf (11 pages, 254019 bytes).
+ 128i,17n,122p,467b,835s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsi1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0600.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on slides.pdf (13 pages, 465326 bytes).
 PDF statistics:
- 211 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
- 180 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 PDF objects out of 1000 (max. 8388607)
+ 190 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 320 words of extra memory for PDF output out of 10000 (max. 10000000)
 
